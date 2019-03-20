@@ -5,8 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
                 <p　style=text-align:center>
-                    Vital Checkはあなたの健康情報を管理するあなた専用のカルテです。</br>
-                    日々のセルフチェックがあなたの健康を守ります。
+                    Vital Checkはあなたの健康情報を管理するあなた専用のオンラインカルテです。</br>
+                    日々のセルフチェックがあなたの健康を守ります。</br>
+                    ログインして記録をつけ、結果をチェックしてみましょう。
                     </p>
             <div class="card">                
                 <div class="card-header">ログイン{{--{{ __('Login') }} --}}</div>
