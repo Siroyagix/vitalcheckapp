@@ -9,9 +9,9 @@
                 <button type="submit" class="btn btn-primary">
                         記録する
                     </button>
-                    <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary">
                             記録をみる
-                        </button>
+                    </button>
 
 
 
