@@ -19,7 +19,7 @@
 Auth::routes();
 
 
-Route::get('/home', 'HomeController@index')->name('home'); 
+Route::get('/home', 'HomeController@index')/* ->name('home') */; 
 Route::get('/','HomeController@top');
 Route::get('/fillrecord','HomeController@fill');
 Route::get('/showrecord','HomeController@show');
