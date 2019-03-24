@@ -6,8 +6,16 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Vital Check</div>
+                <button type="submit" class="btn btn-primary">
+                        記録する
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                            記録をみる
+                        </button>
 
-                <div class="card-body">
+
+
+               {{--  <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -15,7 +23,7 @@
                     @endif
 
                     You are logged in!
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
