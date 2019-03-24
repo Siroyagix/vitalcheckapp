@@ -6,24 +6,13 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Vital Check</div>
-                <button type="submit" class="btn btn-primary">
-                        記録する
-                    </button>
-                <button type="submit" class="btn btn-primary">
-                            記録をみる
-                    </button>
-
-
-
-               {{--  <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                    <div class="form-group row mb-0">
+                        <div class="col-md-8 offset-md-4">                                                      
+                            <a href="{{url('fillrecord')}}" button type="submit" class="btn btn-primary" >記録する</button>
+                            <a href="{{url('showrecord')}}" button type="submit" class="btn btn-primary" >記録をみる</button>                             
                         </div>
-                    @endif
-
-                    You are logged in!
-                </div> --}}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
