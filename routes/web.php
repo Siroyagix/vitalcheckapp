@@ -19,7 +19,6 @@
 Auth::routes();
 
 
-Route::get('/home', 'HomeController@index')/* ->name('home') */; 
-Route::get('/','HomeController@top');
-Route::get('/fillrecord','HomeController@fill');
+Route::get('/','HomeController@index')->name('home'); 
+Route::get('/fillrecord','HomeController@fill')->name('fillrecord');
 Route::get('/showrecord','HomeController@show');
