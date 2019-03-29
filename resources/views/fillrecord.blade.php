@@ -1,5 +1,3 @@
-<html>
-    <body>
-    <p>記録入力ページ</p>
-    </body>
-</html>
+@extends('layouts.app')
+
+<button type="button" class="btn btn-primary">...</button>

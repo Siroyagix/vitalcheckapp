@@ -11,9 +11,6 @@
                             <a href="{{route('fillrecord')}}" class="btn btn-primary">
                                 記録する
                             </a>
-                            <a href="{{url('showrecord')}}" class="btn btn-primary" >
-                                記録をみる
-                            </a>                             
                         </div>
                     </div>
                 </div>
