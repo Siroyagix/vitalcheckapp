@@ -22,3 +22,4 @@ Auth::routes();
 Route::get('/','HomeController@index')->name('home'); 
 Route::get('/fillrecord','HomeController@fill')->name('fillrecord');
 Route::get('/showrecord','HomeController@show');
+Route::get('/','VitaldatumController@index')->name('home');
