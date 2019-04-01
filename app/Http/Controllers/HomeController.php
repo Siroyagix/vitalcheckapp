@@ -31,9 +31,4 @@ class HomeController extends Controller
     {
         return view('fillrecord');
     }
-
-    public function show()
-    {
-        return view('showrecord');
-    }
 }
