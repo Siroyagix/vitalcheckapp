@@ -13,7 +13,7 @@ class VitaldatumController extends Controller
         return view('home', ['items' => $items]);
     }
 
-   
+  
     public function create(Request $request)
     {
         $this->validate($request, Vitaldatum::$rules);

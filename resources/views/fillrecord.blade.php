@@ -12,7 +12,7 @@
     </div>
     @endif
     <table>
-        <form action="/Vitaldatum/create" method="post">
+        <form action="/fillrecord" method="post">
             {{ csrf_field() }}
             <tr><th>日付：</th><td><input type="date" name="日付"
                 value="{{old('日付')}}"></td></tr>
