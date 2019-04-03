@@ -20,6 +20,6 @@ Auth::routes();
 
 
 Route::get('/','HomeController@index')->name('home'); 
-Route::get('fillrecord','HomeController@fill')->name('fillrecord');
-Route::get('/','VitaldatumController@showtable')->middleware('auth');
-Route::post('/fillrecord','VitaldatumController@create');
+Route::get('/fillrecord','VitaldatumController@fill')->name('fillrecord');
+/* Route::get('/','VitaldatumController@showtable')->middleware('auth'); */
+Route::post('/fillrecord','VitaldatumController@create')->name('fillrecord.create');

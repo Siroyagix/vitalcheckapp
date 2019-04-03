@@ -13,16 +13,16 @@ class CreateVitaldataTable extends Migration
      */
     public function up()
     {
-        Schema::table('vitaldata', function (Blueprint $table) {
-            $table->interger('id');
-            $table->interger('日付');
-            $table->interger('体温');
-            $table->interger('脈拍');
-            $table->interger('収縮期血圧');
-            $table->interger('拡張期血圧');
-            $table->text('排泄量');
-            $table->text('便の性状');
-            $table->text('フリーコメント');
+        Schema::create('vitaldata', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('date')->comment('日付');
+            $table->integer('bodytemperature')->comment('体温');
+            $table->integer('pulse')->comment('脈拍');
+            $table->integer('systolicbp')->comment('収縮期血圧');
+            $table->integer('diastlicbp')->comment('拡張期血圧');
+            $table->text('excretion')->comment('排泄量');
+            $table->text('stoolform')->comment('便の性状');
+            $table->text('freecomments')->comment('フリーコメント');
             $table->timestamps();
         });
     }

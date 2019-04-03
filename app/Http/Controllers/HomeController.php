@@ -24,11 +24,8 @@ class HomeController extends Controller
     
     public function index()
     {
-        return view('home');
+        $items = Vitaldatum::all();
+        return view('home', ['items' => $items]);
     }
 
-    public function fill()
-    {
-        return view('fillrecord');
-    }
 }

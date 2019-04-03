@@ -7,13 +7,11 @@ use Illuminate\Http\Request;
 
 class VitaldatumController extends Controller
 {
-    public function showtable(Request $request)
+    public function fill()
     {
-        $items = Vitaldatum::all();
-        return view('home', ['items' => $items]);
+        return view('fillrecord');
     }
 
-  
     public function create(Request $request)
     {
         $this->validate($request, Vitaldatum::$rules);
