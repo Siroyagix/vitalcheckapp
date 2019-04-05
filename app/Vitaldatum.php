@@ -11,14 +11,14 @@ class Vitaldatum extends Model
     protected $guarded = array('id');
 
     public static $rules = array(
-        '日付'=>'date',
-        '体温'=>'digits_between:30,50',
-        '脈拍'=>'digits_between:10,200',
-        '収縮期血圧'=>'digits_between:10,250',
-        '拡張期血圧'=>'digits_between:10,200',
-        '排泄量'=>'string',
-        '便の性状'=>'string',
-        'フリーコメント'=>'string',
+        'date'=>'date',
+        'bodytemperature'=>'digits_between:30,50',
+        'pulse'=>'digits_between:10,200',
+        'systolicbp'=>'digits_between:10,250',
+        'diastlicbp'=>'digits_between:10,200',
+        'excretion'=>'string',
+        'stoolform'=>'string',
+        'freecomments'=>'string',
         
     );
 }
