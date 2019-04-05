@@ -20,5 +20,5 @@ Auth::routes();
 
 
 Route::get('/home','HomeController@index')->name('home'); 
-Route::get('/fillrecord','VitaldatumController@fill')->name('fillrecord');
+Route::get('/fillrecord','VitaldatumController@store')->name('fillrecord');
 Route::post('/fillrecord','VitaldatumController@create')->name('fillrecord.create');

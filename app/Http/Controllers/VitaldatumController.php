@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class VitaldatumController extends Controller
 {
-    public function fill(Request $request)
+    public function store(Request $request)
     {
         return view('fillrecord');
     }

@@ -12,7 +12,7 @@
     </div>
     @endif
     <table>
-        <form action="/fillrecord" method="post">
+        <form action="/store" method="post">
             {{ csrf_field() }}
             <tr>
                 <th>日付：</th>
