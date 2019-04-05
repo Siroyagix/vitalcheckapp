@@ -19,6 +19,6 @@
 Auth::routes();
 
 
-Route::get('/home','HomeController@index')->name('home'); 
-Route::get('/fillrecord','VitaldatumController@store')->name('fillrecord');
-Route::post('/fillrecord','VitaldatumController@create')->name('fillrecord.create');
+Route::get('/','HomeController@index')->name('home'); 
+Route::get('/store','VitaldatumController@store')->name('store');
+Route::post('/store','VitaldatumController@create')->name('store.create');
