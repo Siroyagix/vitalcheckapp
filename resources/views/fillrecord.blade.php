@@ -16,29 +16,29 @@
             {{ csrf_field() }}
             <tr>
                 <th>日付：</th>
-                <td><input type="date" name="日付" value="{{old('日付')}}"></td>
+                <td><input type="date" name="date" value="{{old('date')}}"></td>
             </tr>
             <tr>
                 <th>体温：</th>
-                <td><input type="number" name="体温" value="{{old('体温')}}"></td>
+                <td><input type="number" name="bodytemperature" value="{{old('bodytemperature')}}"></td>
             </tr>
             <tr>
                 <th>脈拍：</th>
-                <td><input type="number" name="脈拍" value="{{old('脈拍')}}"></td>
+                <td><input type="number" name="pulse" value="{{old('pulse')}}"></td>
             </tr>
             <tr>
                 <th>収縮期血圧：</th>
-                <td><input type="number" name="収縮期血圧" value="{{old('収縮期血圧')}}"></td>
+                <td><input type="number" name="systolicbp" value="{{old('systolicbp')}}"></td>
             </tr>
             <tr>
                 <th>拡張期血圧：</th>
-                <td><input type="number" name="拡張期血圧" value="{{old('拡張期血圧')}}"></td>
+                <td><input type="number" name="diastlicbp" value="{{old('diastlicbp')}}"></td>
             </tr>
             <tr>
                 <th>排泄量：</th>
                 <td>
-                    <input type="text" list="排泄量" name="排泄量">
-                        <datalist id="排泄量">
+                    <input type="text" list="excretion" name="excretion">
+                        <datalist id="excretion">
                             <option value="少"></option>
                             <option value="中"></option>
                             <option value="多"></option>
@@ -48,8 +48,8 @@
             <tr>
                 <th>便の性状</th>
                 <td>
-                    <input type="text" name="便の性状" list="便の性状">
-                        <datalist id="便の性状">
+                    <input type="text" name="stoolform" list="stoolform">
+                        <datalist id="stoolform">
                             <option value="下痢"></option>
                             <option value="普通"></option>
                             <option value="硬い"></option>
@@ -58,7 +58,7 @@
             </tr>
             <tr>
                 <th>フリーコメント：</th>
-                <td><input type="text" name="フリーコメント" value="{{old('フリーコメント')}}"></td>
+                <td><input type="text" name="freecomments" value="{{old('freecomments')}}"></td>
             </tr>
             <tr>
                 <th></th>
