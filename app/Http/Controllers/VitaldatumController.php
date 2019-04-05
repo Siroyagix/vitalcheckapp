@@ -9,7 +9,7 @@ class VitaldatumController extends Controller
 {
     public function store(Request $request)
     {
-        return view('fillrecord');
+        return view('store');
     }
 
     public function create(Request $request)
@@ -19,6 +19,6 @@ class VitaldatumController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $vitaldatum->fill($form)->save();
-        return redirect('/fillrecord');
+        return redirect('store');
     }
 }
