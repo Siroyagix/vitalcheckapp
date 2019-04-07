@@ -11,14 +11,14 @@ class Vitaldatum extends Model
     protected $guarded = array('id');
 
     public static $rules = array(
-        'date'=>'date',
-        'bodytemperature'=>'digits_between:30,50',
-        'pulse'=>'digits_between:10,200',
-        'systolicbp'=>'digits_between:10,250',
-        'diastlicbp'=>'digits_between:10,200',
-        'excretion'=>'string',
-        'stoolform'=>'string',
-        'freecomments'=>'string',
+        'date'=>'nullable|date',
+        'bodytemperature'=>'nullable|numeric|min:30|max:50',
+        'pulse'=>'nullable|integer|min:10|max:200',
+        'systolicbp'=>'nullable|integer|min:10|max:250',
+        'diastlicbp'=>'nullable|integer|min:10|max:200',
+        'excretion'=>'nullable|string',
+        'stoolform'=>'nullable|string',
+        'freecomments'=>'nullable|string',
         
     );
 }

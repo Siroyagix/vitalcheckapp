@@ -21,4 +21,4 @@ Auth::routes();
 
 Route::get('/','HomeController@index')->name('home'); 
 Route::get('/store','VitaldatumController@store')->name('store');
-Route::post('/store/add','VitaldatumController@create')->name('store.create');
+Route::post('/create','VitaldatumController@create')->name('store.create');

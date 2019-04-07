@@ -4,7 +4,7 @@
 <div class="container">
     <table class="table">
         <tr>
-            <th>日付</th
+            <th>日付</th>
             <th>体温</th>
             <th>脈拍</th>
             <th>収縮期血圧</th>
