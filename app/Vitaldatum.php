@@ -21,4 +21,9 @@ class Vitaldatum extends Model
         'freecomments'=>'nullable|string',
         
     );
+
+    public function user()
+    {
+        return $this->hasMany('App\User');
+    }
 }

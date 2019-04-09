@@ -18,7 +18,10 @@
 
 Auth::routes();
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/','HomeController@index')->name('home'); 
 
-Route::get('/','HomeController@index')->name('home'); 
-Route::get('/store','VitaldatumController@store')->name('store');
-Route::post('/create','VitaldatumController@create')->name('store.create');
+    Route::resource('vitaldatum', 'VitaldatumController')->only(['store', 'create']);
+    // Route::get('/store','VitaldatumController@store')->name('store');
+    // Route::post('/create','VitaldatumController@create')->name('store.create');
+});

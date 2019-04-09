@@ -28,7 +28,7 @@
     </table>
 </div>
 <div class="col-md-8 offset-md-4">                                                      
-    <a href="{{route('store')}}" class="btn btn-primary">
+    <a href="{{route('vitaldatum.create')}}" class="btn btn-primary">
         記録する
     </a>
 </div>
