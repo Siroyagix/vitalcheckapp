@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Vitaldatum;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth;
 
 class VitaldatumController extends Controller
 {
@@ -18,6 +19,7 @@ class VitaldatumController extends Controller
         $vitaldatum = new Vitaldatum();
         $form = $request->all();
         unset($form['_token']);
+        $user = Auth::user();
         $vitaldatum->fill($form)->save();
         return redirect()->route('home');
     }
