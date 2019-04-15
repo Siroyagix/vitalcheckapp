@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Vitaldatum;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth;
+use Illuminate\Support\Facades\Auth;
 
 class VitaldatumController extends Controller
 {
@@ -17,9 +17,10 @@ class VitaldatumController extends Controller
     {
         $this->validate($request, Vitaldatum::$rules);
         $vitaldatum = new Vitaldatum();
+        $user = ['user_id' => Auth::id()];
         $form = $request->all();
-        unset($form['_token']);
-        $user = Auth::user();
+        $form = array_merge($form,$user);
+        unset($request['_token']);
         $vitaldatum->fill($form)->save();
         return redirect()->route('home');
     }

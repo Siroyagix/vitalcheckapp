@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Vitaldatum;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,8 @@ class HomeController extends Controller
     
     public function index()
     {
-        $items = Vitaldatum::all();
+        $userid = Auth::id();
+        $items = Vitaldatum::where('user_id',$userid)->get();
         return view('home', ['items' => $items]);
     }
 
