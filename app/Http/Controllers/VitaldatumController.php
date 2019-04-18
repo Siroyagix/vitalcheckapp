@@ -10,18 +10,20 @@ class VitaldatumController extends Controller
 {
     public function create(Request $request)
     {
-        return view('vitaldatum.create');
+        $excretions = config('excretion');
+        $stoolforms = config('stoolform');
+        return view('vitaldatum.create')->with(['excretions' => $excretions,'stoolforms' => $stoolforms]);
     }
 
     public function store(Request $request)
     {
         $this->validate($request, Vitaldatum::$rules);
         $vitaldatum = new Vitaldatum();
-        $user = ['user_id' => Auth::id()];
         $form = $request->all();
-        $form = array_merge($form,$user);
+        $form['user_id'] = Auth::id(); 
         unset($request['_token']);
         $vitaldatum->fill($form)->save();
         return redirect()->route('home');
     }
+
 }

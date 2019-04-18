@@ -45,23 +45,21 @@
             <tr>
                 <th>排泄量：</th>
                 <td>
-                    <input type="text" list="excretion" name="excretion"/>
-                    <datalist id="excretion">
-                        <option value="少"></option>
-                        <option value="中"></option>
-                        <option value="多"></option>
-                    </datalist>
+                    <select name="excretion">
+                        @foreach($excretions as $index => $name)
+                            <option value="{{$index}}">{{$name}}</option>
+                        @endforeach
+                    </select>
                 </td>
             </tr>
             <tr>
                 <th>便の性状</th>
                 <td>
-                    <input type="text" name="stoolform" list="stoolform"/>
-                    <datalist id="stoolform">
-                        <option value="下痢"></option>
-                        <option value="普通"></option>
-                        <option value="硬い"></option>
-                    </datalist>
+                    <select name="stoolform">
+                        @foreach($stoolforms as $index => $name)
+                           <option value="{{$index}}">{{$name}}</option>
+                        @endforeach
+                    </select>               
                 </td>
             </tr>
             <tr>

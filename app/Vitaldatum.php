@@ -24,6 +24,6 @@ class Vitaldatum extends Model
 
     public function user()
     {
-        return $this->hasMany('App\User');
+        return $this->belongsTo('\App\User');
     }
 }
