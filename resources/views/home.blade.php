@@ -13,18 +13,22 @@
             <th>便の性状</th>
             <th>フリーコメント</th>
         </tr>
-        @foreach($items as $item)
+        @foreach($items as $item){
         <tr>
             <td>{{$item->date}}</td>
             <td>{{$item->bodytemperature}}</td>
             <td>{{$item->pulse}}</td>
             <td>{{$item->systolicbp}}</td>
             <td>{{$item->diastlicbp}}</td>
-            <td>{{$item->excretion}}</td>
-            <td>{{$item->stoolform}}</td>
+            @foreach($excretions as $index => $name)
+            <td>{{$name}}</td>
+            @endforeach
+            @foreach($stoolforms as $index => $name)
+            <td>{{$name}}</td>
+            @endforeach
             <td>{{$item->freecomments}}</td>
         </tr>
-        @endforeach
+        }@endforeach
     </table>
 </div>
 <div class="col-md-8 offset-md-4">                                                      
