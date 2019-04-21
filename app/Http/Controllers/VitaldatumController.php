@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Vitaldatum;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\CreateUserRequest;
 
 class VitaldatumController extends Controller
 {
@@ -15,9 +16,8 @@ class VitaldatumController extends Controller
         return view('vitaldatum.create')->with(['excretions' => $excretions,'stoolforms' => $stoolforms]);
     }
 
-    public function store(Request $request)
+    public function store(CreateUserRequest $request)
     {
-        $this->validate($request, Vitaldatum::$rules);
         $vitaldatum = new Vitaldatum();
         $form = $request->all();
         $form['user_id'] = Auth::id(); 

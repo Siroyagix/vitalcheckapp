@@ -18,7 +18,7 @@
 
 Auth::routes();
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth','middleware' => 'web'], function () {
     Route::get('/','HomeController@index')->name('home'); 
 
     Route::resource('vitaldatum', 'VitaldatumController')->only(['store', 'create']);
