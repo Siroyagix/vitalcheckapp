@@ -16,7 +16,7 @@ class CreateVitaldataTable extends Migration
         Schema::create('vitaldata', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
-            $table->integer('date')->comment('日付');
+            $table->date('date')->comment('日付');
             $table->integer('bodytemperature')->comment('体温');
             $table->integer('pulse')->comment('脈拍');
             $table->integer('systolicbp')->comment('収縮期血圧');
