@@ -26,9 +26,11 @@ class HomeController extends Controller
     {
         $excretions = config('excretion');
         $stoolforms = config('stoolform');
-        return view('home', [
-            'items' => auth()->user()->vitaldata
-            ])->with(['excretions' => $excretions,'stoolforms' => $stoolforms]);
+        return view('home')->with([
+            'items' => auth()->user()->vitaldata,
+            'excretions' => $excretions,
+            'stoolforms' => $stoolforms
+        ]);
     }
 
 }

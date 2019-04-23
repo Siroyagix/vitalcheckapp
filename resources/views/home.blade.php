@@ -20,12 +20,8 @@
             <td>{{$item->pulse}}</td>
             <td>{{$item->systolicbp}}</td>
             <td>{{$item->diastlicbp}}</td>
-            @foreach($excretions as $index => $name)
-            <td>{{$name}}</td>
-            @endforeach
-            @foreach($stoolforms as $index => $name)
-            <td>{{$name}}</td>
-            @endforeach
+            <td>{{$excretions[$item->excretion]}}</td>
+            <td>{{$stoolforms[$item->stoolform]}}</td>
             <td>{{$item->freecomments}}</td>
         </tr>
         }@endforeach
