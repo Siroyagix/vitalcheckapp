@@ -13,7 +13,7 @@
             <th>便の性状</th>
             <th>フリーコメント</th>
         </tr>
-        @foreach($items as $item){
+        @foreach($items as $item)
         <tr>
             <td>{{$item->date}}</td>
             <td>{{$item->bodytemperature}}</td>
@@ -24,7 +24,7 @@
             <td>{{$stoolforms[$item->stoolform]}}</td>
             <td>{{$item->freecomments}}</td>
         </tr>
-        }@endforeach
+        @endforeach
     </table>
 </div>
 <div class="col-md-8 offset-md-4">                                                      

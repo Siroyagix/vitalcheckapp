@@ -13,7 +13,8 @@ class VitaldatumController extends Controller
     {
         $excretions = config('excretion');
         $stoolforms = config('stoolform');
-        return view('vitaldatum.create')->with(['excretions' => $excretions,'stoolforms' => $stoolforms]);
+        $today = date("Y-m-d");
+        return view('vitaldatum.create',compact('today'))->with(['excretions' => $excretions,'stoolforms' => $stoolforms]);
     }
 
     public function store(CreateUserRequest $request)

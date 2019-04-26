@@ -16,7 +16,7 @@
         <table>
             <tr>
                 <th>日付：</th>
-                <td><input type="date" name="date" value="{{old('date')}}"/></td>
+                <td><input type="date" name="date" value="{{$today}}"/></td>
             </tr>
             <tr>
                 <th>体温：</th>
