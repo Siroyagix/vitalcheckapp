@@ -143,6 +143,15 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'date' => '日付',
+        'bodytemperature' => '体温',
+        'pulse' => '脈拍',
+        'systolicbp' => '収縮期血圧',
+        'diastlicbp' => '拡張期血圧',
+        'excretion' => '排泄量',
+        'stoolform' => '便の性状',
+        'freecomments' => 'フリーコメント',
+        ],
 
 ];
