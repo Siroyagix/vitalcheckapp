@@ -27,4 +27,22 @@ class VitaldatumController extends Controller
         return redirect()->route('home');
     }
 
+    public function edit(Request $request,$id)
+    {
+        $excretions = config('excretion');
+        $stoolforms = config('stoolform');
+        $parameter = Vitaldatum::find($id);
+        return view('vitaldatum.edit')
+         ->with(['parameter' => $parameter,'excretions' => $excretions,'stoolforms' => $stoolforms]);
+    }
+
+    public function update(CreateUserRequest $request,$id)
+    {
+        $vitaldatum = Vitaldatum::find($id);
+        $parameter = $request->all();
+        unset($request['_token']);
+        $vitaldatum->fill($parameter)->save();
+        return redirect()->route('home');
+    }
+
 }

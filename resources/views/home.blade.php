@@ -23,6 +23,11 @@
             <td>{{$excretions[$item->excretion]}}</td>
             <td>{{$stoolforms[$item->stoolform]}}</td>
             <td>{{$item->freecomments}}</td>
+            <td>
+                <div class="col-md-8 offset-md-4">                                                      
+                    <a href="{{route('vitaldatum.edit',['id'=>$item->id])}}" class="btn btn-primary">記録を書き換える</a>
+                </div>
+            </td>
         </tr>
         @endforeach
     </table>

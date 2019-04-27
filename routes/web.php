@@ -21,7 +21,8 @@ Auth::routes();
 Route::group(['middleware' => 'auth','middleware' => 'web'], function () {
     Route::get('/','HomeController@index')->name('home'); 
 
-    Route::resource('vitaldatum', 'VitaldatumController')->only(['store', 'create']);
-    // Route::get('/store','VitaldatumController@store')->name('store');
-    // Route::post('/create','VitaldatumController@create')->name('store.create');
+    Route::resource('vitaldatum', 'VitaldatumController')->only(['store', 'create','edit']);
+    Route::get('vitaldatum/{id}/edit','VitaldatumController@edit');
+    Route::post('vitaldatum/{id}/edit','VitaldatumController@update');
+   
 });
