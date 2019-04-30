@@ -25,12 +25,16 @@
             <td>{{$item->freecomments}}</td>
             <td>
                 <div class="col-md-8 offset-md-4">                                                      
-                    <a href="{{route('vitaldatum.edit',['id'=>$item->id])}}" class="btn btn-primary">記録の編集</noscript></a>
+                    <a href="{{route('vitaldatum.edit',[$item])}}" class="btn btn-primary">編集</a>
                 </div>
             </td>
             <td>
                 <div class="col-md-8 offset-md-4">                                                      
-                    <a href="{{action('VitaldatumController@destroy',['id'=>$item->id])}}" class="btn btn-primary">記録の削除</noscript></noscript></a>
+                    <form action="{{route('vitaldatum.destroy',[$item])}}" method="post">
+                        <input type="submit" value="削除" class="btn btn-danger"/>
+                        @method('DELETE')
+                        @csrf
+                    </form>
                 </div>
             </td>
         </tr>

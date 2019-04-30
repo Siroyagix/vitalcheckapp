@@ -11,41 +11,42 @@
         </ul>
     </div>
     @endif
-    <form action="#" method="post">
-        {{ csrf_field() }}
+    <form action="{{route('vitaldatum.update',[$vitaldatum])}}" method="post">
+        @method('PUT')
+        @csrf
         <table>
             <tr>
                 <th>日付：</th>
-                <td><input type="date" name="date" value="{{$parameter->date}}"/></td>
+                <td><input type="date" name="date" value="{{$vitaldatum->date}}"/></td>
             </tr>
             <tr>
                 <th>体温：</th>
                 <td>
-                    <input type="number"  step="0.1" name="bodytemperature" value="{{$parameter->bodytemperature}}"/>
+                    <input type="number"  step="0.1" name="bodytemperature" value="{{$vitaldatum->bodytemperature}}"/>
                 </td>
             </tr>
             <tr>
                 <th>脈拍：</th>
                 <td>
-                    <input type="number" name="pulse" value="{{$parameter->pulse}}"/>
+                    <input type="number" name="pulse" value="{{$vitaldatum->pulse}}"/>
                 </td>
             </tr>
             <tr>
                 <th>収縮期血圧：</th>
                 <td>
-                    <input type="number" name="systolicbp" value="{{$parameter->systolicbp}}"/>
+                    <input type="number" name="systolicbp" value="{{$vitaldatum->systolicbp}}"/>
                 </td>
             </tr>
             <tr>
                 <th>拡張期血圧：</th>
                 <td>
-                    <input type="number" name="diastlicbp" value="{{$parameter->diastlicbp}}"/>
+                    <input type="number" name="diastlicbp" value="{{$vitaldatum->diastlicbp}}"/>
                 </td>
             </tr>
             <tr>
                 <th>排泄量：</th>
                 <td>
-                    <select name="excretion" value="{{$excretions[$parameter->excretion]}}">
+                    <select name="excretion" value="{{$excretions[$vitaldatum->excretion]}}">
                         @foreach($excretions as $index => $name)
                             <option value="{{$index}}">{{$name}}</option>
                         @endforeach
@@ -55,7 +56,7 @@
             <tr>
                 <th>便の性状</th>
                 <td>
-                    <select name="stoolform" value="{{$stoolforms[$parameter->stoolform]}}">
+                    <select name="stoolform" value="{{$stoolforms[$vitaldatum->stoolform]}}">
                         @foreach($stoolforms as $index => $name)
                            <option value="{{$index}}">{{$name}}</option>
                         @endforeach
@@ -65,7 +66,7 @@
             <tr>
                 <th>フリーコメント：</th>
                 <td>
-                    <input type="text" name="freecomments" value="{{$parameter->freecomments}}"/>
+                    <input type="text" name="freecomments" value="{{$vitaldatum->freecomments}}"/>
                 </td>
             </tr>
             <tr>
