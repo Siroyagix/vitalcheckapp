@@ -25,7 +25,12 @@
             <td>{{$item->freecomments}}</td>
             <td>
                 <div class="col-md-8 offset-md-4">                                                      
-                    <a href="{{route('vitaldatum.edit',['id'=>$item->id])}}" class="btn btn-primary">記録を書き換える</a>
+                    <a href="{{route('vitaldatum.edit',['id'=>$item->id])}}" class="btn btn-primary">記録の編集</noscript></a>
+                </div>
+            </td>
+            <td>
+                <div class="col-md-8 offset-md-4">                                                      
+                    <a href="{{action('VitaldatumController@destroy',['id'=>$item->id])}}" class="btn btn-primary">記録の削除</noscript></noscript></a>
                 </div>
             </td>
         </tr>

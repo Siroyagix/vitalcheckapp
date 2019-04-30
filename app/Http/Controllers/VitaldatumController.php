@@ -45,4 +45,10 @@ class VitaldatumController extends Controller
         return redirect()->route('home');
     }
 
+    public function destroy(Request $request,$id)
+    {
+        Vitaldatum::find($id)->delete();
+        return redirect()->route('home');
+    }
+
 }
