@@ -46,4 +46,7 @@
         記録する
     </a>
 </div>
+<div class="pagination justify-content-center">
+    {{$items->links()}}
+</div>
 @endsection
