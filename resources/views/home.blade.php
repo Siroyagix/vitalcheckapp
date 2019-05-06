@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 <div class="container">
     <table class="table">
@@ -29,17 +30,39 @@
                 </div>
             </td>
             <td>
-                <div class="col-md-8 offset-md-4">                                                      
-                    <form action="{{route('vitaldatum.destroy',[$item])}}" method="post">
-                        <input type="submit" value="削除" class="btn btn-danger"/>
-                        @method('DELETE')
-                        @csrf
-                    </form>
-                </div>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletemodal">
+                    {{'削除'}}
+                </button>
             </td>
+        </table>
+           {{--   モーダルウィンドウ  --}}
+           <div class="modal" id="deletemodal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">確認画面</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>本当に削除しますか？</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                  <form action="{{route('vitaldatum.destroy',[$item])}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">
+                        {{'削除'}}
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
         </tr>
         @endforeach
-    </table>
 </div>
 <div class="col-md-8 offset-md-4">                                                      
     <a href="{{route('vitaldatum.create')}}" class="btn btn-primary">
@@ -50,3 +73,5 @@
     {{$items->links()}}
 </div>
 @endsection
+
+
