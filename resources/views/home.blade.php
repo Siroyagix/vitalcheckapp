@@ -2,7 +2,6 @@
 
 
 @section('content')
-<div class="container">
     <table class="table">
         <tr>
             <th>日付</th>
@@ -34,7 +33,9 @@
                     {{'削除'}}
                 </button>
             </td>
-        </table>
+        </tr>
+        @endforeach
+    </table>
            {{--   モーダルウィンドウ  --}}
            <div class="modal" id="deletemodal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
@@ -61,9 +62,6 @@
               </div>
             </div>
           </div>
-        </tr>
-        @endforeach
-</div>
 <div class="col-md-8 offset-md-4">                                                      
     <a href="{{route('vitaldatum.create')}}" class="btn btn-primary">
         記録する

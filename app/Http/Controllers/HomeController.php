@@ -28,7 +28,7 @@ class HomeController extends Controller
         $excretions = config('excretion');
         $stoolforms = config('stoolform');
         return view('home')->with([
-            'items' => auth()->user()->vitaldata()->paginate(7),
+            'items' => auth()->user()->vitaldata()->orderBy('date','asc')->paginate(7),
             'excretions' => $excretions,
             'stoolforms' => $stoolforms
         ]);
