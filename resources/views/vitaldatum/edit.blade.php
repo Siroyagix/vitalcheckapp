@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','バイタルデータの記録を編集する')
+@section('title','記録を編集する')
 @section('content')
     @if(count($errors)>0)
     <div>

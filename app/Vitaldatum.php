@@ -17,4 +17,5 @@ class Vitaldatum extends Model
     {
         return $this->belongsTo('\App\User');
     }
+
 }

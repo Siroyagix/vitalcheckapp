@@ -64,12 +64,110 @@
           </div>
 <div class="col-md-8 offset-md-4">                                                      
     <a href="{{route('vitaldatum.create')}}" class="btn btn-primary">
-        記録する
+      記録する
     </a>
-</div>
 <div class="pagination justify-content-center">
     {{$items->links()}}
 </div>
+
+@if(count($errors)>0)
+<div>
+    <ul>
+        @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+<form action="{{-- {{route('vitaldatum.search')}} --}}" method="get">
+    @csrf
+    <table>
+      <tr>
+          <th>いつから：</th>
+          <td><input type="date" name="datefrom" value="{{$today}}"/></td>
+          <th>いつまで：</th>
+          <td><input type="date" name="dateto" value="{{$today}}"/></td>
+      </tr>
+      <tr>
+          <th>体温：</th>
+          <td>
+              <input type="number"  step="0.1" name="bodytemperature" value="{{old('bodytemperature')}}"/>
+              <select name="searchkey">
+                @foreach($searchkeys as $index => $name)
+                    <option value="{{$index}}">{{$name}}</option>
+                @endforeach
+              </select>
+          </td>
+      </tr>
+      <tr>
+          <th>脈拍：</th>
+          <td>
+              <input type="number" name="pulse" value="{{old('pulse')}}"/>
+              <select name="searchkey">
+                @foreach($searchkeys as $index => $name)
+                    <option value="{{$index}}">{{$name}}</option>
+                @endforeach
+              </select>
+          </td>
+      </tr>
+      <tr>
+          <th>収縮期血圧：</th>
+          <td>
+              <input type="number" name="systolicbp" value="{{old('systolicbp')}}"/>
+              <select name="searchkey">
+                @foreach($searchkeys as $index => $name)
+                    <option value="{{$index}}">{{$name}}</option>
+                @endforeach
+              </select>
+          </td>
+      </tr>
+      <tr>
+          <th>拡張期血圧：</th>
+          <td>
+              <input type="number" name="diastlicbp" value="{{old('diastlicbp')}}"/>
+              <select name="searchkey">
+                @foreach($searchkeys as $index => $name)
+                    <option value="{{$index}}">{{$name}}</option>
+                @endforeach
+              </select>
+          </td>
+      </tr>
+      <tr>
+          <th>排泄量：</th>
+          <td>
+              <select name="excretion">
+                  @foreach($excretions as $index => $name)
+                      <option value="{{$index}}">{{$name}}</option>
+                  @endforeach
+                      <option selected></option>
+              </select>
+          </td>
+      </tr>
+      <tr>
+          <th>便の性状</th>
+          <td>
+              <select name="stoolform">
+                  @foreach($stoolforms as $index => $name)
+                    <option value="{{$index}}">{{$name}}</option>
+                  @endforeach
+                    <option selected></option>
+              </select>               
+          </td>
+      </tr>
+      <tr>
+          <th>フリーコメント：</th>
+          <td>
+              <input type="text" name="freecomments">
+          </td>
+      </tr>
+      <tr>
+          <th></th>
+          <td>
+              <input type="submit" value="検索する">
+          </td>
+      </tr>
+  </table>
+</form>
 @endsection
 
 

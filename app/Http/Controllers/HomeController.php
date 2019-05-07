@@ -27,10 +27,13 @@ class HomeController extends Controller
     {
         $excretions = config('excretion');
         $stoolforms = config('stoolform');
-        return view('home')->with([
+        $searchkeys = config('searchkey');
+        $today = date("Y-m-d");
+        return view('home',compact('today'))->with([
             'items' => auth()->user()->vitaldata()->orderBy('date','asc')->paginate(7),
             'excretions' => $excretions,
-            'stoolforms' => $stoolforms
+            'stoolforms' => $stoolforms,
+            'searchkeys' => $searchkeys
         ]);
     }
 
