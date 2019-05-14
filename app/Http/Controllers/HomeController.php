@@ -23,17 +23,69 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     
-    public function index()
+    public function index(Request $request)
     {
         $excretions = config('excretion');
         $stoolforms = config('stoolform');
-        $searchkeys = config('searchkey');
         $today = date("Y-m-d");
+        $input = $request->input();
+        $items = auth()->user()->vitaldata;
+        if (isset($input['datefrom']) && $input['datefrom']) {
+            $items->where('date', '>=', $input['datefrom']);
+        }
+
+        if (isset($input['dateto']) && $input['dateto']) {
+            $items->where('date', '<=', $input['dateto']);
+        } 
+        if (isset($input['bodytemperaturefrom']) && $input['bodytemperaturefrom']) {
+            $items->where('bodytemperature', '>=', $input['bodytemperaturefrom']);
+        }
+
+        if (isset($input['bodytemperatureto']) && $input['bodytemperatureto']) {
+            $items->where('bodytemperature', '<=', $input['bodytemperatureto']);
+        } 
+        if (isset($input['pulsefrom']) && $input['pulsefrom']) {
+            $items->where('pulse', '>=', $input['pulsefrom']);
+        }
+
+        if (isset($input['pulseto']) && $input['pulseto']) {
+            $items->where('pulse', '<=', $input['pulseto']);
+        } 
+        if (isset($input['pulsefrom']) && $input['pulsefrom']) {
+            $items->where('pulse', '>=', $input['pulsefrom']);
+        }
+
+        if (isset($input['systolicbpto']) && $input['systolicbpto']) {
+            $items->where('systolicbp', '<=', $input['systolicbpto']);
+        } 
+        if (isset($input['systolicbpfrom']) && $input['systolicbpfrom']) {
+            $items->where('systolicbp', '>=', $input['systolicbpfrom']);
+        }
+
+        if (isset($input['systolicbpto']) && $input['systolicbpto']) {
+            $items->where('systolicbp', '<=', $input['systolicbpto']);
+        } 
+        if (isset($input['diastlicbpfrom']) && $input['diastlicbpfrom']) {
+            $items->where('diastlicbp', '>=', $input['diastlicbpfrom']);
+        }
+
+        if (isset($input['diastlicbpto']) && $input['diastlicbpto']) {
+            $items->where('diastlicbp', '<=', $input['diastlicbpto']);
+        } 
+        if (isset($input['excretion'])&& $input['excretion']) {
+            $items->where('excretion', '==', $input['excretion']);
+        }
+
+        if (isset($input['stoolform']) && $input['stoolform']) {
+            $items->where('stoolform', '==', $input['stoolform']);
+        } 
+        if (isset($input['freecomments']) && $input['freecomments']) {
+            $items->where('freecomments', '==', $input['freecomments']);
+        }
         return view('home',compact('today'))->with([
             'items' => auth()->user()->vitaldata()->orderBy('date','asc')->paginate(7),
             'excretions' => $excretions,
             'stoolforms' => $stoolforms,
-            'searchkeys' => $searchkeys
         ]);
     }
 

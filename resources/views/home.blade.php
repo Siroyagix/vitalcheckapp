@@ -79,57 +79,52 @@
     </ul>
 </div>
 @endif
-<form action="{{-- {{route('vitaldatum.search')}} --}}" method="get">
+<form action="{{route('home')}}" method="get">
     @csrf
     <table>
       <tr>
-          <th>いつから：</th>
-          <td><input type="date" name="datefrom" value="{{$today}}"/></td>
-          <th>いつまで：</th>
-          <td><input type="date" name="dateto" value="{{$today}}"/></td>
+          <th>日付：</th>
+          <td>
+              いつから<input type="date" name="datefrom" value="{{$today}}"/>
+          </td>
+          <td>
+              いつまで<input type="date" name="dateto" value="{{$today}}"/>
+          </td>
       </tr>
       <tr>
           <th>体温：</th>
           <td>
-              <input type="number"  step="0.1" name="bodytemperature" value="{{old('bodytemperature')}}"/>
-              <select name="searchkey">
-                @foreach($searchkeys as $index => $name)
-                    <option value="{{$index}}">{{$name}}</option>
-                @endforeach
-              </select>
+              <input type="number"  step="0.1" name="bodytemperaturefrom" value="{{old('bodytemperature')}}"/>
+          </td>
+          <td>
+              <input type="number"  step="0.1" name="bodytemperatureto" value="{{old('bodytemperature')}}"/>
           </td>
       </tr>
       <tr>
           <th>脈拍：</th>
           <td>
-              <input type="number" name="pulse" value="{{old('pulse')}}"/>
-              <select name="searchkey">
-                @foreach($searchkeys as $index => $name)
-                    <option value="{{$index}}">{{$name}}</option>
-                @endforeach
-              </select>
+              <input type="number" name="pulsefrom" value="{{old('pulse')}}"/>
+          </td>
+          <td>
+              <input type="number" name="pulseto" value="{{old('pulse')}}"/>
           </td>
       </tr>
       <tr>
           <th>収縮期血圧：</th>
           <td>
-              <input type="number" name="systolicbp" value="{{old('systolicbp')}}"/>
-              <select name="searchkey">
-                @foreach($searchkeys as $index => $name)
-                    <option value="{{$index}}">{{$name}}</option>
-                @endforeach
-              </select>
+              <input type="number" name="systolicbpfrom" value="{{old('systolicbp')}}"/>
+          </td>
+          <td>
+              <input type="number" name="systolicbpto" value="{{old('systolicbp')}}"/>
           </td>
       </tr>
       <tr>
           <th>拡張期血圧：</th>
           <td>
-              <input type="number" name="diastlicbp" value="{{old('diastlicbp')}}"/>
-              <select name="searchkey">
-                @foreach($searchkeys as $index => $name)
-                    <option value="{{$index}}">{{$name}}</option>
-                @endforeach
-              </select>
+              <input type="number" name="diastlicbpfrom" value="{{old('diastlicbp')}}"/>
+          </td>
+          <td>
+              <input type="number" name="diastlicbpto" value="{{old('diastlicbp')}}"/>
           </td>
       </tr>
       <tr>
