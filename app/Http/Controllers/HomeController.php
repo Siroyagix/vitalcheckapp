@@ -29,7 +29,7 @@ class HomeController extends Controller
         $stoolforms = config('stoolform');
         $today = date("Y-m-d");
         $input = $request->input();
-        $items = auth()->user()->vitaldata;
+        $items = auth()->user()->vitaldata();
         if (isset($input['datefrom']) && $input['datefrom']) {
             $items->where('date', '>=', $input['datefrom']);
         }
@@ -83,7 +83,7 @@ class HomeController extends Controller
             $items->where('freecomments', '==', $input['freecomments']);
         }
         return view('home',compact('today'))->with([
-            'items' => auth()->user()->vitaldata()->orderBy('date','asc')->paginate(7),
+            'items' => $items->orderBy('date','asc')->paginate(3),
             'excretions' => $excretions,
             'stoolforms' => $stoolforms,
         ]);
