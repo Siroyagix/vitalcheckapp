@@ -29,6 +29,7 @@ class HomeController extends Controller
         $stoolforms = config('stoolform');
         $today = date("Y-m-d");
         $input = $request->input();
+        dump($input);
         $items = auth()->user()->vitaldata();
         if (isset($input['datefrom']) && $input['datefrom']) {
             $items->where('date', '>=', $input['datefrom']);
@@ -71,17 +72,16 @@ class HomeController extends Controller
 
         if (isset($input['diastlicbpto']) && $input['diastlicbpto']) {
             $items->where('diastlicbp', '<=', $input['diastlicbpto']);
-        } 
-        if (isset($input['excretion'])&& $input['excretion']) {
-            $items->where('excretion', '==', $input['excretion']);
         }
 
-        if (isset($input['stoolform']) && $input['stoolform']) {
-            $items->where('stoolform', '==', $input['stoolform']);
-        } 
-        if (isset($input['freecomments']) && $input['freecomments']) {
-            $items->where('freecomments', '==', $input['freecomments']);
+        if (isset($input['excretion'])&& is_array($input['excretion'])) {
+            $items->where('excretion', $input['excretion']);
         }
+
+        if (isset($input['stoolform']) && is_array($input['stoolform'])) {
+            $items->where('stoolform', $input['stoolform']);
+        } 
+        
         return view('home',compact('today'))->with([
             'items' => $items->orderBy('date','asc')->paginate(3),
             'excretions' => $excretions,

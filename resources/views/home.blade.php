@@ -4,79 +4,85 @@
 @section('content')
 
 <div class="col-md-8 offset-md-4">                                                      
-    <a href="{{route('vitaldatum.create')}}" class="btn btn-primary btn-lg btn-success pull-right">記録する</a>
+    <a href="{{route('vitaldatum.create')}}" class="btn btn-primary btn-lg btn-success float-right">記録する</a>
 </div>
 
-{{--  バリデーションエラー表示  --}}
-@if(count($errors)>0)
-<div>
-    <ul>
-        @foreach($errors->all() as $error)
-            <li>{{$error}}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
-<form action="{{route('home')}}" method="get">
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#search">検索</button>
+
+<div id="search" class="collapse">
+    {{--  バリデーションエラー表示  --}}
+    @if(count($errors)>0)
+    <div>
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    <form action="{{route('home')}}" method="get">
     @csrf
-    <table>
-      <tr>
-          <th>日付：</th>
-          <td><input type="date" name="datefrom" value="{{$today}}"/></td>
-          <td><input type="date" name="dateto" value="{{$today}}"/></td>
-      </tr>
-      <tr>
-          <th>体温：</th>
-          <td><input type="number"  step="0.1" name="bodytemperaturefrom" value="{{old('bodytemperature')}}"/></td>
-          <td><input type="number"  step="0.1" name="bodytemperatureto" value="{{old('bodytemperature')}}"/></td>
-      </tr>
-      <tr>
-          <th>脈拍：</th>
-          <td><input type="number" name="pulsefrom" value="{{old('pulse')}}"/></td>
-          <td><input type="number" name="pulseto" value="{{old('pulse')}}"/></td>
-      </tr>
-      <tr>
-          <th>収縮期血圧：</th>
-          <td><input type="number" name="systolicbpfrom" value="{{old('systolicbp')}}"/></td>
-          <td><input type="number" name="systolicbpto" value="{{old('systolicbp')}}"/></td>
-      </tr>
-      <tr>
-          <th>拡張期血圧：</th>
-          <td><input type="number" name="diastlicbpfrom" value="{{old('diastlicbp')}}"/></td>
-          <td><input type="number" name="diastlicbpto" value="{{old('diastlicbp')}}"/></td>
-      </tr>
-      <tr>
-          <th>排泄量：</th>
-          <td>
-              <select name="excretion">
-                  @foreach($excretions as $index => $name)
-                      <option value="{{$index}}">{{$name}}</option>
-                  @endforeach
-                      <option selected></option>
-              </select>
-          </td>
-      </tr>
-      <tr>
-          <th>便の性状</th>
-          <td>
-              <select name="stoolform">
-                  @foreach($stoolforms as $index => $name)
-                    <option value="{{$index}}">{{$name}}</option>
-                  @endforeach
-                    <option selected></option>
-              </select>               
-          </td>
-      </tr>
-      <tr>
-          <th>フリーコメント：</th>
-          <td><input type="text" name="freecomments"></td>
-      </tr>
-      <tr>
-          <th></th>
-          <td><input type="submit" value="検索する"></td>
-      </tr>
-  </table>
-</form>
+        <table>
+            <tr>
+                <th>日付：</th>
+                <td><input type="date" name="datefrom" value="{{$today}}"/></td>
+                <td>～<input type="date" name="dateto" value="{{$today}}"/></td>
+            </tr>
+            <tr>
+                <th>体温：</th>
+                <td><input type="number"  step="0.1" name="bodytemperaturefrom" value="{{old('bodytemperature')}}"/></td>
+                <td>～<input type="number"  step="0.1" name="bodytemperatureto" value="{{old('bodytemperature')}}"/></td>
+            </tr>
+            <tr>
+                <th>脈拍：</th>
+                <td><input type="number" name="pulsefrom" value="{{old('pulse')}}"/></td>
+                <td>～<input type="number" name="pulseto" value="{{old('pulse')}}"/></td>
+            </tr>
+            <tr>
+                <th>収縮期血圧：</th>
+                <td><input type="number" name="systolicbpfrom" value="{{old('systolicbp')}}"/></td>
+                <td>～<input type="number" name="systolicbpto" value="{{old('systolicbp')}}"/></td>
+            </tr>
+            <tr>
+                <th>拡張期血圧：</th>
+                <td><input type="number" name="diastlicbpfrom" value="{{old('diastlicbp')}}"/></td>
+                <td>～<input type="number" name="diastlicbpto" value="{{old('diastlicbp')}}"/></td>
+            </tr>
+            <tr>
+                <th>排泄量：</th>
+                <td>
+                    @foreach($excretions as $index => $name)
+                    <label class="checkbox-inline"><input type="checkbox" name="excretion[]" value="{{$index}}">{{$name}}</label>
+                    @endforeach
+                    {{--  <select name="excretion">
+                        @foreach($excretions as $index => $name)
+                            <option value="{{$index}}">{{$name}}</option>
+                        @endforeach
+                            <option selected></option>
+                    </select>  --}}
+                </td>
+            </tr>
+            <tr>
+                <th>便の性状</th>
+                <td>
+                    @foreach($stoolforms as $index => $name)
+                    <label class="checkbox-inline"><input type="checkbox" name="stoolform[]" value="{{$index}}">{{$name}}</label>
+                    @endforeach
+                    {{--  <select name="stoolform">
+                        @foreach($stoolforms as $index => $name)
+                            <option value="{{$index}}">{{$name}}</option>
+                        @endforeach
+                            <option selected></option>
+                    </select>  --}}               
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><input type="submit" value="検索する"/></td>
+            </tr>
+        </table>
+    </form>
+</div>
 
 <table class="table">
     <tr>

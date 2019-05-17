@@ -44,6 +44,7 @@
                     @foreach($excretions as $index => $name)
                         <option value="{{$index}}">{{$name}}</option>
                     @endforeach
+                        <option selected></option>
                 </select>
             </td>
         </tr>
@@ -54,6 +55,7 @@
                     @foreach($stoolforms as $index => $name)
                         <option value="{{$index}}">{{$name}}</option>
                     @endforeach
+                        <option selected></option>  
                 </select>               
             </td>
         </tr>
