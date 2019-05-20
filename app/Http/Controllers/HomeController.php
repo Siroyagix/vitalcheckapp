@@ -75,11 +75,13 @@ class HomeController extends Controller
         }
 
         if (isset($input['excretion'])&& is_array($input['excretion'])) {
-            $items->where('excretion', $input['excretion']);
+            foreach($input['excretion'] as $key => $searchkey){
+                $items->where('excretion', $searchkey)->orwhere('excretion', $searchkey);}
         }
 
         if (isset($input['stoolform']) && is_array($input['stoolform'])) {
-            $items->where('stoolform', $input['stoolform']);
+            foreach($input['stoolform'] as $key =>$searchkey){
+                $items->where('stoolform', $searchkey)->orwhere('stoolform',$searchkey);}
         } 
         
         return view('home',compact('today'))->with([
