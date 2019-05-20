@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +19,9 @@
 
 Auth::routes();
 
-Route::group(['middleware' => 'auth','middleware' => 'web'], function () {
-    Route::get('/','HomeController@index')->name('home'); 
 
+Route::group(['middleware' => 'web','middleware' => 'auth'], function () {
+    Route::get('/','HomeController@index')->name('home');
     Route::resource('vitaldatum', 'VitaldatumController')->except(['show']);
     
 });

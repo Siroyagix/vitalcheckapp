@@ -12,11 +12,11 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+   /*  public function __construct()
     {
         $this->middleware('auth');
     }
-
+ */
     /**
      * Show the application dashboard.
      *
@@ -29,7 +29,6 @@ class HomeController extends Controller
         $stoolforms = config('stoolform');
         $today = date("Y-m-d");
         $input = $request->input();
-        dump($input);
         $items = auth()->user()->vitaldata();
         if (isset($input['datefrom']) && $input['datefrom']) {
             $items->where('date', '>=', $input['datefrom']);
