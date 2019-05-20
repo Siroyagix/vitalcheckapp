@@ -20,7 +20,7 @@
 Auth::routes();
 
 
-Route::group(['middleware' => 'web','middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/','HomeController@index')->name('home');
     Route::resource('vitaldatum', 'VitaldatumController')->except(['show']);
     

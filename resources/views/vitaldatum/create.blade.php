@@ -49,7 +49,7 @@
             </td>
         </tr>
         <tr>
-            <th>便の性状</th>
+            <th>便の性状：</th>
             <td>
                 <select name="stoolform">
                     @foreach($stoolforms as $index => $name)
@@ -61,7 +61,8 @@
         </tr>
         <tr>
             <th>フリーコメント：</th>
-            <td><input type="text" name="freecomments" value="{{old('freecomments')}}"/></td>
+            {{--※削除予定： <td><input type="text" name="freecomments" value="{{old('freecomments')}}"/></td> --}}
+            <td><textarea class="form-control" name="freecomments" rows="10" cols="30"></textarea></td>
         </tr>
         <tr>
             <th></th>
