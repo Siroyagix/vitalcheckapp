@@ -29,6 +29,7 @@ class HomeController extends Controller
         $stoolforms = config('stoolform');
         $today = date("Y-m-d");
         $input = $request->input();
+        dump($input);
         $items = auth()->user()->vitaldata();
         if (isset($input['datefrom']) && $input['datefrom']) {
             $items->where('date', '>=', $input['datefrom']);
@@ -74,19 +75,25 @@ class HomeController extends Controller
         }
 
         if (isset($input['excretion'])&& is_array($input['excretion'])) {
-            foreach($input['excretion'] as $key => $searchkey){
-                $items->where('excretion', $searchkey)->orwhere('excretion', $searchkey);}
+            $items->whereIn('excretion', $input['excretion']);
+            // foreach($input['excretion'] as $key => $searchkey){
+            //     $items->where('excretion', $searchkey)->orwhere('excretion', $searchkey);
+            // }
         }
 
         if (isset($input['stoolform']) && is_array($input['stoolform'])) {
-            foreach($input['stoolform'] as $key =>$searchkey){
-                $items->where('stoolform', $searchkey)->orwhere('stoolform',$searchkey);}
+            $items->whereIn('stoolform', $input['stoolform']);
+            // $items->where('stoolform', '=', 1);
+            // foreach($input['stoolform'] as $key =>$searchkey){
+            //     $items->where('stoolform', $searchkey)->orwhere('stoolform',$searchkey);
+            // }
         } 
-        
+
         return view('home',compact('today'))->with([
             'items' => $items->orderBy('date','asc')->paginate(3),
             'excretions' => $excretions,
             'stoolforms' => $stoolforms,
+            'input' => $input,
         ]);
     }
 

@@ -25,28 +25,28 @@
         <table>
             <tr>
                 <th>日付：</th>
-                <td><input type="date" name="datefrom" value="{{$today}}"/></td>
-                <td>～<input type="date" name="dateto" value="{{$today}}"/></td>
+                <td><input type="date" name="datefrom" value="{{$input['datefrom']}}"/></td>
+                <td>～<input type="date" name="dateto" value="{{$input['dateto']}}"/></td>
             </tr>
             <tr>
                 <th>体温：</th>
-                <td><input type="number"  step="0.1" name="bodytemperaturefrom" value="{{old('bodytemperature')}}"/></td>
-                <td>～<input type="number"  step="0.1" name="bodytemperatureto" value="{{old('bodytemperature')}}"/></td>
+                <td><input type="number"  step="0.1" name="bodytemperaturefrom" value="{{$input['bodytemperaturefrom']}}"/></td>
+                <td>～<input type="number"  step="0.1" name="bodytemperatureto" value="{{$input['bodytemperatureto']}}"/></td>
             </tr>
             <tr>
-                <th>脈拍：</th>
-                <td><input type="number" name="pulsefrom" value="{{old('pulse')}}"/></td>
-                <td>～<input type="number" name="pulseto" value="{{old('pulse')}}"/></td>
+                <th>pulsefrom脈拍：</th>
+                <td><input type="number" name="pulsefrom" value="{{$input['pulsefrom']}}"/></td>
+                <td>～<input type="number" name="pulseto" value="{{$input['pulseto']}}"/></td>
             </tr>
             <tr>
                 <th>収縮期血圧：</th>
-                <td><input type="number" name="systolicbpfrom" value="{{old('systolicbp')}}"/></td>
-                <td>～<input type="number" name="systolicbpto" value="{{old('systolicbp')}}"/></td>
+                <td><input type="number" name="systolicbpfrom" value="{{$input['systolicbpfrom']}}"/></td>
+                <td>～<input type="number" name="systolicbpto" value="{{$input['systolicbpto']}}"/></td>
             </tr>
             <tr>
                 <th>拡張期血圧：</th>
-                <td><input type="number" name="diastlicbpfrom" value="{{old('diastlicbp')}}"/></td>
-                <td>～<input type="number" name="diastlicbpto" value="{{old('diastlicbp')}}"/></td>
+                <td><input type="number" name="diastlicbpfrom" value="{{$input['diastlicbpfrom']}}"/></td>
+                <td>～<input type="number" name="diastlicbpto" value="{{$input['diastlicbpto']}}"/></td>
             </tr>
             <tr>
                 <th>排泄量：</th>
