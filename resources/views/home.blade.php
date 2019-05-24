@@ -34,7 +34,7 @@
                 <td>～<input type="number"  step="0.1" name="bodytemperatureto" value="{{$input['bodytemperatureto']}}"/></td>
             </tr>
             <tr>
-                <th>pulsefrom脈拍：</th>
+                <th>脈拍：</th>
                 <td><input type="number" name="pulsefrom" value="{{$input['pulsefrom']}}"/></td>
                 <td>～<input type="number" name="pulseto" value="{{$input['pulseto']}}"/></td>
             </tr>
@@ -52,28 +52,20 @@
                 <th>排泄量：</th>
                 <td>
                     @foreach($excretions as $index => $name)
-                    <label class="checkbox-inline"><input type="checkbox" name="excretion[]" value="{{$index}}">{{$name}}</label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="excretion[]" value="{{$index}}" checked="$check">{{$name}}
+                        </label>
                     @endforeach
-                    {{--  <select name="excretion">
-                        @foreach($excretions as $index => $name)
-                            <option value="{{$index}}">{{$name}}</option>
-                        @endforeach
-                            <option selected></option>
-                    </select>  --}}
                 </td>
             </tr>
             <tr>
                 <th>便の性状</th>
                 <td>
                     @foreach($stoolforms as $index => $name)
-                    <label class="checkbox-inline"><input type="checkbox" name="stoolform[]" value="{{$index}}">{{$name}}</label>
-                    @endforeach
-                    {{--  <select name="stoolform">
-                        @foreach($stoolforms as $index => $name)
-                            <option value="{{$index}}">{{$name}}</option>
-                        @endforeach
-                            <option selected></option>
-                    </select>  --}}               
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="stoolform[]" value="{{$index}}">{{$name}}
+                        </label>
+                    @endforeach             
                 </td>
             </tr>
             <tr>

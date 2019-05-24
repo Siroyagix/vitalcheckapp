@@ -28,8 +28,11 @@ class HomeController extends Controller
         $excretions = config('excretion');
         $stoolforms = config('stoolform');
         $today = date("Y-m-d");
-        $input = $request->input();
-        dump($input);
+        if(isset($request)){
+            $input = $request->input();
+        }else{
+            $input = null;
+        }
         $items = auth()->user()->vitaldata();
         if (isset($input['datefrom']) && $input['datefrom']) {
             $items->where('date', '>=', $input['datefrom']);
@@ -69,11 +72,9 @@ class HomeController extends Controller
         if (isset($input['diastlicbpfrom']) && $input['diastlicbpfrom']) {
             $items->where('diastlicbp', '>=', $input['diastlicbpfrom']);
         }
-
         if (isset($input['diastlicbpto']) && $input['diastlicbpto']) {
             $items->where('diastlicbp', '<=', $input['diastlicbpto']);
         }
-
         if (isset($input['excretion'])&& is_array($input['excretion'])) {
             $items->whereIn('excretion', $input['excretion']);
             // foreach($input['excretion'] as $key => $searchkey){
@@ -93,7 +94,7 @@ class HomeController extends Controller
             'items' => $items->orderBy('date','asc')->paginate(3),
             'excretions' => $excretions,
             'stoolforms' => $stoolforms,
-            'input' => $input,
+            'input' => $input
         ]);
     }
 
