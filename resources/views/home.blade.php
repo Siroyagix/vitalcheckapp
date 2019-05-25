@@ -21,7 +21,7 @@
     </div>
     @endif
     <form action="{{route('home')}}" method="get">
-    @csrf
+    {{ csrf_field() }}
         <table>
             <tr>
                 <th>日付：</th>
@@ -53,7 +53,7 @@
                 <td>
                     @foreach($excretions as $index => $name)
                         <label class="checkbox-inline">
-                            <input type="checkbox" name="excretion[]" value="{{$index}}" checked="$check">{{$name}}
+                            <input type="checkbox" name="excretion[]" value="{{$index}}">{{$name}}
                         </label>
                     @endforeach
                 </td>
