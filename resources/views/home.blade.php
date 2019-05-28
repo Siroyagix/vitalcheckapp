@@ -53,7 +53,7 @@
                 <td>
                     @foreach($excretions as $index => $name)
                         <label class="checkbox-inline">
-                            <input type="checkbox" name="excretion[]" value="{{$index}}">{{$name}}
+                            <input type="checkbox" name="excretion[]" value="{{$index}}" {{is_array($input['excretion']) && in_array($index,$input['excretion'])? 'checked':''}}>{{$name}}
                         </label>
                     @endforeach
                 </td>
@@ -76,6 +76,7 @@
     </form>
 </div>
 
+
 <table class="table">
     <tr>
         <th>日付</th>
@@ -90,7 +91,6 @@
         <th></th>
     </tr>
     @foreach($items as $item)
-    
     <tr>
         <td>{{$item->date}}</td>
         <td>{{$item->bodytemperature}}</td>
@@ -101,7 +101,7 @@
         <td>{{$stoolforms[$item->stoolform]}}</td>
         <td>{{$item->freecomments}}</td>
         <td>
-            <div class="col-md-8 offset-md-4">                                                      
+            <div class="col-md-8 offset-md-4">
                 <a href="{{route('vitaldatum.edit',[$item])}}" class="btn btn-primary">編集</a>
             </div>
         </td>
@@ -119,6 +119,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+                        
                         <div class="modal-body">
                             <p>本当に削除しますか？</p>
                         </div>
@@ -130,6 +131,7 @@
                                 <button type="submit" class="btn btn-danger">
                                     {{'削除'}}
                                 </button>
+                                
                             </form>
                         </div>
                     </div>
@@ -139,7 +141,6 @@
     </tr>
     @endforeach
 </table>
-          
 
 <div class="pagination justify-content-center">
     {{$items->links('vendor.pagination.bootstrap-4')}}
