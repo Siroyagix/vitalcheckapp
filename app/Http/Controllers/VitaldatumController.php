@@ -9,14 +9,32 @@ use App\Http\Requests\CreateUserRequest;
 
 class VitaldatumController extends Controller
 {
+    /**
+     * バイタルデータ新規登録画面
+     * @param Request $request
+     * @return View
+     */
     public function create(Request $request)
     {
         $excretions = config('excretion');
         $stoolforms = config('stoolform');
-        $today = date("Y-m-d");
-        return view('vitaldatum.create',compact('today'))->with(['excretions' => $excretions,'stoolforms' => $stoolforms]);
+        return view('vitaldatum.create')->with([
+            'today' => date("Y-m-d"),
+            'vitaldatum' => new Vitaldatum(),
+            'excretions' => $excretions,
+            'stoolforms' => $stoolforms
+        ]);
     }
 
+   
+
+      
+
+    /**
+     * バイタルデータ新規登録画面
+     * @param CreateUserRequest $request
+     * @return void
+     */
     public function store(CreateUserRequest $request)
     {
         $vitaldatum = new Vitaldatum();
@@ -27,12 +45,15 @@ class VitaldatumController extends Controller
         return redirect()->route('home');
     }
 
-    public function edit(Request $request,Vitaldatum $vitaldatum)
+    public function edit(Request $request, Vitaldatum $vitaldatum)
     {
         $excretions = config('excretion');
         $stoolforms = config('stoolform');
-        return view('vitaldatum.edit')
-         ->with(['vitaldatum' => $vitaldatum,'excretions' => $excretions,'stoolforms' => $stoolforms]);
+        return view('vitaldatum.edit')->with([
+            'vitaldatum' => $vitaldatum, 
+            'excretions' => $excretions,
+            'stoolforms' => $stoolforms
+        ]);
     }
 
     public function update(CreateUserRequest $request,Vitaldatum $vitaldatum)

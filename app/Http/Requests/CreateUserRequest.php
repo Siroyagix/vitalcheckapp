@@ -38,7 +38,7 @@ class CreateUserRequest extends FormRequest
             'diastlicbp'=>'nullable|integer|min:10|max:200',
             'excretion'=>'nullable|string',
             'stoolform'=>'nullable|string',
-            'freecomments'=>'nullable|string',
+            'freecomments'=>'nullable|string|max:150',
         ];
     }
 }

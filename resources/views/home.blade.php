@@ -63,7 +63,7 @@
                 <td>
                     @foreach($stoolforms as $index => $name)
                         <label class="checkbox-inline">
-                            <input type="checkbox" name="stoolform[]" value="{{$index}}">{{$name}}
+                            <input type="checkbox" name="stoolform[]" value="{{$index}}"{{is_array($input['stoolform']) && in_array($index,$input['stoolform'])? 'checked':''}}>{{$name}}
                         </label>
                     @endforeach             
                 </td>
@@ -97,8 +97,8 @@
         <td>{{$item->pulse}}</td>
         <td>{{$item->systolicbp}}</td>
         <td>{{$item->diastlicbp}}</td>
-        <td>{{$excretions[$item->excretion]}}</td>
-        <td>{{$stoolforms[$item->stoolform]}}</td>
+        <td>{{isset($item->excretion)?$excretions[$item->excretion]:""}}</td>
+        <td>{{isset($item->stoolform)?$stoolforms[$item->stoolform]:""}}</td>
         <td>{{$item->freecomments}}</td>
         <td>
             <div class="col-md-8 offset-md-4">
@@ -141,7 +141,6 @@
     </tr>
     @endforeach
 </table>
-
 <div class="pagination justify-content-center">
     {{$items->links('vendor.pagination.bootstrap-4')}}
 </div>

@@ -41,10 +41,10 @@
             <th>排泄量：</th>
             <td>
                 <select name="excretion">
+                    <option value="">----</option>
                     @foreach($excretions as $index => $name)
                         <option value="{{$index}}">{{$name}}</option>
                     @endforeach
-                        <option selected></option>
                 </select>
             </td>
         </tr>
@@ -52,17 +52,16 @@
             <th>便の性状：</th>
             <td>
                 <select name="stoolform">
+                    <option value="">----</option>
                     @foreach($stoolforms as $index => $name)
                         <option value="{{$index}}">{{$name}}</option>
                     @endforeach
-                        <option selected></option>  
                 </select>               
             </td>
         </tr>
         <tr>
             <th>フリーコメント：</th>
-            {{--※削除予定： <td><input type="text" name="freecomments" value="{{old('freecomments')}}"/></td> --}}
-            <td><textarea class="form-control" name="freecomments" rows="10" cols="30"></textarea></td>
+            <td><textarea class="form-control" name="freecomments" rows="10" cols="35"></textarea></td>
         </tr>
         <tr>
             <th></th>
