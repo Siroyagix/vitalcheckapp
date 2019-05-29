@@ -16,4 +16,7 @@
         </div>
        @include('vitaldatum._input',[$vitaldatum])
     </form>
+    <div class="col-md-8 offset-md-4">                                                      
+            <a href="{{url('/')}}" class="btn btn-secondary">Home</a>
+    </div>
 @endsection

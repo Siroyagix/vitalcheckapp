@@ -24,9 +24,7 @@ class VitaldatumController extends Controller
             'excretions' => $excretions,
             'stoolforms' => $stoolforms
         ]);
-    }
-
-   
+    } 
 
       
 
