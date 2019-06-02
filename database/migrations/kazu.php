@@ -17,7 +17,7 @@ class CreateVitaldataTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->date('date')->comment('日付');
-            $table->decimal('bodytemperature',3,1)->comment('体温');
+            $table->integer('bodytemperature')->comment('体温');
             $table->integer('pulse')->comment('脈拍');
             $table->integer('systolicbp')->comment('収縮期血圧');
             $table->integer('diastlicbp')->comment('拡張期血圧');
