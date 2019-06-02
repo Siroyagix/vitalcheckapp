@@ -1,7 +1,7 @@
 <div class="form-group row">
     <label for="dt" class="col-sm-2 col-form-label">日付</label>
     <div class="col-sm-10">
-        <input type="date" id="dt" name="date" value="{{old('date', $vitaldatum->date)}}" class="form-control {{$errors->has('date')? 'is-invalid':''}}"/>
+        <input type="date" id="dt" name="date" value="{{isset($vitaldatum)? old('date', $vitaldatum->date):$today}}" class="form-control {{$errors->has('date')? 'is-invalid':''}}"/>
     </div>
     <div class="invalid-feedback">
         {{collect($errors->get('date'))->first()}}
@@ -10,7 +10,7 @@
 <div class="form-group row">        
     <label for="bd" class="col-sm-2 col-form-label">体温</label>
     <div class="col-sm-10">
-        <input type="number" id="bd" step="0.1" name="bodytemperature" value="{{old('bodytemperature', $vitaldatum->bodytemperature)}}" class="form-control {{$errors->has('bodytemperature')? 'is-invalid': ''}}"/>
+        <input type="number" step="0.1" name="bodytemperature" value="{{old('bodytemperature', $vitaldatum->bodytemperature)}}" id="bd" class="form-control {{$errors->has('bodytemperature')? 'is-invalid': ''}}"/>
         <div class="invalid-feedback">
             {{collect($errors->get('bodytemperature'))->first()}}
         </div>

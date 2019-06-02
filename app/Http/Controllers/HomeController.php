@@ -98,7 +98,6 @@ class HomeController extends Controller
         if (isset($input['stoolform']) && is_array($input['stoolform'])) {
             $items->whereIn('stoolform', $input['stoolform']);
         }
-       
         return view('home')->with([
             'items' => $items->orderBy('date','asc')->paginate(3),
             'excretions' => $excretions,

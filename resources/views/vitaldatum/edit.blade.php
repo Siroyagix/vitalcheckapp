@@ -2,6 +2,7 @@
 
 
 @section('title','記録を編集する')
+
 @section('content')
     <form action="{{route('vitaldatum.update',[$vitaldatum])}}" method="post">
         @method('PUT')
