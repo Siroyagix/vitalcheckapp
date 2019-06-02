@@ -8,12 +8,12 @@
     </div>
 </div>
 <div class="form-group row">        
-    <label for="bd" class="col-sm-2 col-form-label">体温</label>
+    <label for="bt" class="col-sm-2 col-form-label">体温</label>
     <div class="col-sm-10">
-        <input type="number" step="0.1" name="bodytemperature" value="{{old('bodytemperature', $vitaldatum->bodytemperature)}}" id="bd" class="form-control {{$errors->has('bodytemperature')? 'is-invalid': ''}}"/>
-        <div class="invalid-feedback">
-            {{collect($errors->get('bodytemperature'))->first()}}
-        </div>
+        <input type="number" step="0.1" name="bodytemperature" value="{{old('bodytemperature', $vitaldatum->bodytemperature)}}" id="bt" class="form-control {{$errors->has('bodytemperature')? 'is-invalid': ''}}"/>
+    </div>
+    <div class="invalid-feedback">
+        {{collect($errors->get('bodytemperature'))->first()}}
     </div>
 </div>
 <div class="form-group row">
@@ -80,6 +80,6 @@
 <div class="invalid-feedback">
     {{collect($errors->get('freecomments'))->first()}}
 </div>
-<div class="col-auto">
-    <button type="submit" class="btn btn-primary mb-2">送信</button>
+<div class="d-flex justify-content-center">
+    <button type="submit" class="btn btn-primary btn-lg mb-2">送信</button>
 </div>

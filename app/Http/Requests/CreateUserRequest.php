@@ -31,7 +31,7 @@ class CreateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'date'=>'nullable|date',
+            'date'=>'required|date',
             'bodytemperature'=>'nullable|numeric|min:30|max:50',
             'pulse'=>'nullable|integer|min:10|max:200',
             'systolicbp'=>'nullable|integer|min:10|max:250',
