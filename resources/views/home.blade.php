@@ -12,79 +12,72 @@
     <div id="search" class="collapse">
         <form action="{{route('home')}}" method="get">
             {{ csrf_field() }}
-        <div class="form-group row">
-            <label for="dt" class="col-sm-2 col-form-label">日付</label>
-            <div class="col-sm-5">
-                <input type="date" id="dt" name="datefrom" value="{{$input['datefrom']}}" class="form-control"/>
+            <div class="form-group row">
+                <label for="dt" class="col-sm-2 col-form-label">日付</label>
+                <div class="col-sm-5">
+                    <input type="date" id="dt" name="datefrom" value="{{$input['datefrom']}}" class="form-control"/>
+                </div>
+                <div class="col-sm-5">
+                    <input type="date" id="dt" name="dateto" value="{{$input['dateto']}}"  class="form-control"/>
+                </div>
             </div>
-            <div class="col-sm-5">
-                <input type="date" id="dt" name="dateto" value="{{$input['dateto']}}" class="form-control"/>
+            <div class="form-group row">
+                <label for="bt" class="col-sm-2 col-form-label">体温</label>
+                <div class="col-sm-5">
+                    <input type="number" step="0.1" name="bodytemperaturefrom" value="{{$input['bodytemperaturefrom']}}" id="bt"　placeholder="（例：小数第一位まで入力可）36.5" class="form-control"/>
+                </div>
+                <div class="col-sm-5">
+                    <input type="number" step="0.1" name="bodytemperatureto" value="{{$input['bodytemperatureto']}}" id="bt" class="form-control"/>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="bt" class="col-sm-2 col-form-label">体温</label>
-            <div class="col-sm-5">
-                <input type="number" step="0.1" name="bodytemperaturefrom" value="{{$input['bodytemperaturefrom']}}" id="bt" class="form-control"/>
+            <div class="form-group row">
+                <label for="pl" class="col-sm-2 col-form-label">脈拍</label>
+                <div class="col-sm-5">
+                    <input type="number" name="pulsefrom" value="{{$input['pulsefrom']}}" id="pl" placeholder="（例：回/分）60" class="form-control"/>
+                </div>
+                <div class="col-sm-5">
+                    <input type="number" name="pulseto" value="{{$input['pulseto']}}" id="pl" class="form-control"/>
+                </div>
             </div>
-            <div class="col-sm-5">
-                <input type="number" step="0.1" name="bodytemperatureto" value="{{$input['bodytemperatureto']}}" id="bt" class="form-control"/>
+            <div class="form-group row">
+                <label for="sbp" class="col-sm-2 col-form-label">収縮期血圧</label>
+                <div class="col-sm-5">
+                    <input type="number" name="systolicbpfrom" value="{{$input['systolicbpfrom']}}" id="sbp" placeholder="（例）120" class="form-control"/>
+                </div>
+                <div class="col-sm-5">
+                    <input type="number" name="systolicbpto" value="{{$input['systolicbpto']}}" id="sbp" class="form-control"/>
+                </div>
             </div>
-        </div>
-
-        
-            
-        {{--  修正後まで残しておく  --}}
-            <table>
-                <tr>
-                    <th>日付：</th>
-                    <td><input type="date" name="datefrom" value="{{$input['datefrom']}}"/></td>
-                    <td>～<input type="date" name="dateto" value="{{$input['dateto']}}"/></td>
-                </tr>
-                <tr>
-                    <th>体温：</th>
-                    <td><input type="number"  step="0.1" name="bodytemperaturefrom" value="{{$input['bodytemperaturefrom']}}"/></td>
-                    <td>～<input type="number"  step="0.1" name="bodytemperatureto" value="{{$input['bodytemperatureto']}}"/></td>
-                </tr>
-                <tr>
-                    <th>脈拍：</th>
-                    <td><input type="number" name="pulsefrom" value="{{$input['pulsefrom']}}"/></td>
-                    <td>～<input type="number" name="pulseto" value="{{$input['pulseto']}}"/></td>
-                </tr>
-                <tr>
-                    <th>収縮期血圧：</th>
-                    <td><input type="number" name="systolicbpfrom" value="{{$input['systolicbpfrom']}}"/></td>
-                    <td>～<input type="number" name="systolicbpto" value="{{$input['systolicbpto']}}"/></td>
-                </tr>
-                <tr>
-                    <th>拡張期血圧：</th>
-                    <td><input type="number" name="diastlicbpfrom" value="{{$input['diastlicbpfrom']}}"/></td>
-                    <td>～<input type="number" name="diastlicbpto" value="{{$input['diastlicbpto']}}"/></td>
-                </tr>
-                <tr>
-                    <th>排泄量：</th>
-                    <td>
-                        @foreach($excretions as $index => $name)
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="excretion[]" value="{{$index}}" {{is_array($input['excretion']) && in_array($index,$input['excretion'])? 'checked':''}}>{{$name}}
-                            </label>
-                        @endforeach
-                    </td>
-                </tr>
-                <tr>
-                    <th>便の性状</th>
-                    <td>
-                        @foreach($stoolforms as $index => $name)
-                            <label class="checkbox-inline">
-                                <input type="checkbox" name="stoolform[]" value="{{$index}}"{{is_array($input['stoolform']) && in_array($index,$input['stoolform'])? 'checked':''}}>{{$name}}
-                            </label>
-                        @endforeach             
-                    </td>
-                </tr>
-                <tr>
-                    <th></th>
-                    <td><input type="submit" value="検索する"/></td>
-                </tr>
-            </table>
+            <div class="form-group row">
+                <label for="dbp" class="col-sm-2 col-form-label">収縮期血圧</label>
+                <div class="col-sm-5">
+                    <input type="number" name="diastlicbpfrom" value="{{$input['diastlicbpfrom']}}" id="dbp"　placeholder="（例）60" class="form-control"/>
+                </div>
+                <div class="col-sm-5">
+                    <input type="number" name="diastlicbpto" value="{{$input['diastlicbpto']}}" id="dbp" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="exn" class="col-sm-2 col-form-label">排泄量</label>
+                    <input type="hidden" name="excretion" value="">
+                @foreach($excretions as $index => $name)
+                    <div class="col-sm-2">
+                        <input type="checkbox" name="excretion[]" value="{{$index}}" id="exn" {{is_array($input['excretion']) && in_array($index,$input['excretion'])? 'checked':''}}>{{$name}}
+                    </div>
+                @endforeach
+            </div>
+            <div class="form-group row">
+                <label for="stm" class="col-sm-2 col-form-label">便の性状</label>
+                    <input type="hidden" name="stoolform" value="">
+                @foreach($stoolforms as $index => $name)
+                    <div class="col-sm-2">
+                        <input type="checkbox" name="stoolform[]" value="{{$index}}" id="stm" {{is_array($input['stoolform']) && in_array($index,$input['stoolform'])? 'checked':''}}>{{$name}}
+                    </div>
+                @endforeach
+            </div>
+            <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-lg mb-2">検索する</button>
+            </div>             
         </form>
     </div>
 
@@ -114,9 +107,7 @@
             <td>{{isset($item->stoolform)?$stoolforms[$item->stoolform]:""}}</td>
             <td>{{$item->freecomments}}</td>
             <td>
-                <div class="col-md-8 offset-md-4">
-                    <a href="{{route('vitaldatum.edit',[$item])}}" class="btn btn-primary">編集</a>
-                </div>
+                <a href="{{route('vitaldatum.edit',[$item])}}" class="btn btn-primary">編集</a>
             </td>
             <td>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletemodal{{$item->id}}">
