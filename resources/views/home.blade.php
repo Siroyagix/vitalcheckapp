@@ -59,7 +59,7 @@
             </div>
             <div class="form-group row">
                 <label for="exn" class="col-sm-2 col-form-label">排泄量</label>
-                    <input type="hidden" name="excretion" value="">
+                <input type="hidden" name="excretion" value="">
                 @foreach($excretions as $index => $name)
                     <div class="col-sm-2">
                         <input type="checkbox" name="excretion[]" value="{{$index}}" id="exn" {{is_array($input['excretion']) && in_array($index,$input['excretion'])? 'checked':''}}>{{$name}}
@@ -68,7 +68,7 @@
             </div>
             <div class="form-group row">
                 <label for="stm" class="col-sm-2 col-form-label">便の性状</label>
-                    <input type="hidden" name="stoolform" value="">
+                <input type="hidden" name="stoolform" value="">
                 @foreach($stoolforms as $index => $name)
                     <div class="col-sm-2">
                         <input type="checkbox" name="stoolform[]" value="{{$index}}" id="stm" {{is_array($input['stoolform']) && in_array($index,$input['stoolform'])? 'checked':''}}>{{$name}}
