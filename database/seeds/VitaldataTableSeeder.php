@@ -32,10 +32,10 @@ class VitaldataTableSeeder extends Seeder
             'date' => '2019-05-01',
             'bodytemperature' => '37.5',
             'pulse' => '100',
-            'systolicbp' => '',
-            'diastlicbp' => '',
-            'excretion' => '',
-            'stoolform' => '',
+            'systolicbp' => null,
+            'diastlicbp' => null,
+            'excretion' => null,
+            'stoolform' => null,
             'freecomments' => '風邪気味',
         ];
         DB::table('vitaldata')->insert($param);
@@ -50,7 +50,7 @@ class VitaldataTableSeeder extends Seeder
             'diastlicbp' => '80',
             'excretion' => '3',
             'stoolform' => '3',
-            'freecomments' => '',
+            'freecomments' => null,
         ];
         DB::table('vitaldata')->insert($param);
 
@@ -60,8 +60,8 @@ class VitaldataTableSeeder extends Seeder
             'date' => '2019-05-05',
             'bodytemperature' => '36.2',
             'pulse' => '85',
-            'systolicbp' => '',
-            'diastlicbp' => '',
+            'systolicbp' => null,
+            'diastlicbp' => null,
             'excretion' => '1',
             'stoolform' => '1',
             'freecomments' => 'まあまあ',
@@ -88,11 +88,11 @@ class VitaldataTableSeeder extends Seeder
             'date' => '2019-05-08',
             'bodytemperature' => '35.8',
             'pulse' => '58',
-            'systolicbp' => '',
-            'diastlicbp' => '',
-            'excretion' => '',
-            'stoolform' => '',
-            'freecomments' => '',
+            'systolicbp' => null,
+            'diastlicbp' => null,
+            'excretion' => null,
+            'stoolform' => null,
+            'freecomments' => null,
 
         ];
         DB::table('vitaldata')->insert($param);
@@ -102,11 +102,11 @@ class VitaldataTableSeeder extends Seeder
             'date' => '2019-05-12',
             'bodytemperature' => '36.9',
             'pulse' => '98',
-            'systolicbp' => '',
-            'diastlicbp' => '',
-            'excretion' => '',
-            'stoolform' => '',
-            'freecomments' => '',
+            'systolicbp' => null,
+            'diastlicbp' => null,
+            'excretion' => null,
+            'stoolform' => null,
+            'freecomments' => null,
 
         ];
         DB::table('vitaldata')->insert($param);
@@ -114,13 +114,13 @@ class VitaldataTableSeeder extends Seeder
             'id' => '8',
             'user_id' => '1',
             'date' => '2019-05-15',
-            'bodytemperature' => '',
+            'bodytemperature' => null,
             'pulse' => '100',
             'systolicbp' => '150',
             'diastlicbp' => '70',
-            'excretion' => '',
-            'stoolform' => '',
-            'freecomments' => '',
+            'excretion' => null,
+            'stoolform' => null,
+            'freecomments' => null,
 
         ];
         DB::table('vitaldata')->insert($param);
@@ -131,8 +131,8 @@ class VitaldataTableSeeder extends Seeder
             'date' => '2019-05-20',
             'bodytemperature' => '39.0',
             'pulse' => '120',
-            'systolicbp' => '',
-            'diastlicbp' => '',
+            'systolicbp' => null,
+            'diastlicbp' => null,
             'excretion' => '3',
             'stoolform' => '3',
             'freecomments' => '感染性胃腸炎',
