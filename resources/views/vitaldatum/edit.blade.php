@@ -12,8 +12,5 @@
         
        @include('vitaldatum._input',[$vitaldatum])
     </form>
-    <div class="d-flex justify-content-center">                                                      
-        <a href="{{url('/')}}" class="btn btn-secondary btn-lg">Home</a>
-    </div>
 </div>
 @endsection

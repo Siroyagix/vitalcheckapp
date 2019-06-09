@@ -138,6 +138,7 @@ class VitaldataTableSeeder extends Seeder
             'freecomments' => '感染性胃腸炎',
         ];
         DB::table('vitaldata')->insert($param);
+
         $param=[
             'id' => '10',
             'user_id' => '1',
@@ -149,6 +150,147 @@ class VitaldataTableSeeder extends Seeder
             'excretion' => '3',
             'stoolform' => '3',
             'freecomments' => '熱上昇傾向',
+        ];
+        DB::table('vitaldata')->insert($param);
+        
+        $param=[
+            'id' => '11',
+            'user_id' => '1',
+            'date' => '2019-05-26',
+            'bodytemperature' => '38.0',
+            'pulse' => null,
+            'systolicbp' => '130',
+            'diastlicbp' => '90',
+            'excretion' => null,
+            'stoolform' => null,
+            'freecomments' => null,
+        ];
+        DB::table('vitaldata')->insert($param);
+
+        
+        $param=[
+            'id' => '12',
+            'user_id' => '1',
+            'date' => '2019-05-28',
+            'bodytemperature' => '35.6',
+            'pulse' => null,
+            'systolicbp' => null,
+            'diastlicbp' => null,
+            'excretion' => '1',
+            'stoolform' => '1',
+            'freecomments' => '低体温',
+        ];
+        DB::table('vitaldata')->insert($param);
+        
+        $param=[
+            'id' => '13',
+            'user_id' => '1',
+            'date' => '2019-05-29',
+            'bodytemperature' => '36.5',
+            'pulse' => null,
+            'systolicbp' => null,
+            'diastlicbp' => null,
+            'excretion' => null,
+            'stoolform' => null,
+            'freecomments' => null,
+        ];
+        DB::table('vitaldata')->insert($param);
+        
+        $param=[
+            'id' => '14',
+            'user_id' => '1',
+            'date' => '2019-05-30',
+            'bodytemperature' => '36.9',
+            'pulse' => '80',
+            'systolicbp' => '110',
+            'diastlicbp' => '90',
+            'excretion' => '1',
+            'stoolform' => '3',
+            'freecomments' => '普通',
+        ];
+        DB::table('vitaldata')->insert($param);
+        
+        $param=[
+            'id' => '15',
+            'user_id' => '1',
+            'date' => '2019-06-01',
+            'bodytemperature' => '37.4',
+            'pulse' => '90',
+            'systolicbp' => null,
+            'diastlicbp' => null,
+            'excretion' => null,
+            'stoolform' => null,
+            'freecomments' => null,
+        ];
+        DB::table('vitaldata')->insert($param);
+        
+        $param=[
+            'id' => '16',
+            'user_id' => '1',
+            'date' => '2019-06-02',
+            'bodytemperature' => '37.0',
+            'pulse' => '85',
+            'systolicbp' => '145',
+            'diastlicbp' => '80',
+            'excretion' => '2',
+            'stoolform' => '2',
+            'freecomments' => '良好',
+        ];
+        DB::table('vitaldata')->insert($param);
+        
+        $param=[
+            'id' => '17',
+            'user_id' => '1',
+            'date' => '2019-06-03',
+            'bodytemperature' => null,
+            'pulse' => null,
+            'systolicbp' => null,
+            'diastlicbp' => null,
+            'excretion' => '3',
+            'stoolform' => '3',
+            'freecomments' => null,
+        ];
+        DB::table('vitaldata')->insert($param);
+        
+        $param=[
+            'id' => '18',
+            'user_id' => '1',
+            'date' => '2019-06-04',
+            'bodytemperature' => '36.1',
+            'pulse' => '65',
+            'systolicbp' => null,
+            'diastlicbp' => null,
+            'excretion' => '3',
+            'stoolform' => '3',
+            'freecomments' => '良好',
+        ];
+        DB::table('vitaldata')->insert($param);
+        
+        $param=[
+            'id' => '19',
+            'user_id' => '1',
+            'date' => '2019-06-05',
+            'bodytemperature' => '36.8',
+            'pulse' => '70',
+            'systolicbp' => '170',
+            'diastlicbp' => '100',
+            'excretion' => '3',
+            'stoolform' => '3',
+            'freecomments' => '血圧高め',
+        ];
+        DB::table('vitaldata')->insert($param);
+        
+        $param=[
+            'id' => '20',
+            'user_id' => '1',
+            'date' => '2019-06-07',
+            'bodytemperature' => '38.0',
+            'pulse' => '100',
+            'systolicbp' => null,
+            'diastlicbp' => null,
+            'excretion' => null,
+            'stoolform' => null,
+            'freecomments' => '発熱',
         ];
         DB::table('vitaldata')->insert($param);
     }
