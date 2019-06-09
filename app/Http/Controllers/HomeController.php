@@ -98,7 +98,7 @@ class HomeController extends Controller
             $items->whereIn('stoolform', $input['stoolform']);
         }
         return view('home')->with([
-            'items' => $items->orderBy('date','asc')->paginate(3),
+            'items' => $items->orderBy('date','asc')->paginate(5),
             'excretions' => $excretions,
             'stoolforms' => $stoolforms,
             'input' => $input
