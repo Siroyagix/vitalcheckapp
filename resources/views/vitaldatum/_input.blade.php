@@ -82,6 +82,6 @@
 </div>
 
 <div class="d-flex justify-content-center">
-    <a href="{{url('/')}}" class="btn btn-secondary btn-lg">戻る</a>
-    <button type="submit" class="btn btn-primary btn-lg">送信</button>
+    <a href="{{url('/')}}" class="btn btn-secondary btn-lg m-3">戻る</a>
+    <button type="submit" class="btn btn-primary btn-lg m-3">送信</button>
 </div>

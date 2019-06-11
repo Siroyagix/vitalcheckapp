@@ -9,7 +9,7 @@
         <a href="{{route('vitaldatum.create')}}" class="btn btn-success btn-lg m-2">記録する</a>
     </div>
 
-    <div id="search" class="collapse">
+    <div id="search" class="collapse show">
         <form action="{{route('home')}}" method="get">
             {{ csrf_field() }}
             <div class="form-group row">

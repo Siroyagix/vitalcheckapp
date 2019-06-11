@@ -8,8 +8,8 @@
                         Vital Checkはあなたの健康情報を管理するあなた専用のオンラインカルテです。</br>
                         日々のセルフチェックがあなたの健康を守ります。</br>
                         ログインして記録をつけ、結果をチェックしてみましょう。</br></br>
-                        {{--  テストユーザーID：test@gmail.com
-                        テストパスワード：01234  --}}
+                        テストユーザーID　　testuser@example.com
+                        テストユーザーパスワード　　testuser1234
                 </div>
                 <div class="card m-10">                
                     <div class="card-header">ログイン</div>
