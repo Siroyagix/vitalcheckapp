@@ -22,13 +22,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    
-    public function index(Request $request)
+
+    /**
+     * ユーザーに紐づいたテーブルデータ表示・検索画面
+     *
+     * @param Request $request
+     * @return void
+     */
+     public function index(Request $request)
     {
         $excretions = config('excretion');
         $stoolforms = config('stoolform');
         $input = array_diff_key($request->input(), array_flip([
             'page',
+            '_token',
         ]));
         if (!$input) {
             $input = [

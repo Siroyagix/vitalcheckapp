@@ -43,6 +43,13 @@ class VitaldatumController extends Controller
         return redirect()->route('home');
     }
 
+    /**
+     * バイタルデータ編集画面
+     *
+     * @param Request $request
+     * @param Vitaldatum $vitaldatum
+     * @return void
+     */
     public function edit(Request $request, Vitaldatum $vitaldatum)
     {
         $excretions = config('excretion');
@@ -54,6 +61,13 @@ class VitaldatumController extends Controller
         ]);
     }
 
+    /**
+     * バイタルデータ上書き編集
+     *
+     * @param CreateUserRequest $request
+     * @param Vitaldatum $vitaldatum
+     * @return void
+     */
     public function update(CreateUserRequest $request,Vitaldatum $vitaldatum)
     {
         $parameter = $request->all();
@@ -62,6 +76,13 @@ class VitaldatumController extends Controller
         return redirect()->route('home');
     }
 
+    /**
+     * バイタルデータ削除画面
+     *
+     * @param Request $request
+     * @param Vitaldatum $vitaldatum
+     * @return void
+     */
     public function destroy(Request $request,Vitaldatum $vitaldatum)
     {
         $vitaldatum->delete();

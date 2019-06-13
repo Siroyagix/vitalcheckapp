@@ -37,6 +37,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * バイタルデータテーブルとの関連付け
+     *
+     * @return void
+     */
     public function vitaldata()
     {
         return $this->hasMany('\App\Vitaldatum');
