@@ -8,78 +8,82 @@
         <button type="button" class="btn btn-info btn-lg m-2" data-toggle="collapse" data-target="#search">検索窓を開く　▼</button>
         <a href="{{route('vitaldatum.create')}}" class="btn btn-success btn-lg m-2">記録する</a>
     </div>
-
-    <div id="search" class="collapse show">
-        <form action="{{route('home')}}" method="get">
-            {{ csrf_field() }}
-            <div class="form-group row">
-                <label for="dt" class="col-sm-2 col-form-label">日付</label>
-                <div class="col-sm-5">
-                    <input type="date" id="dt" name="datefrom" value="{{$input['datefrom']}}" class="form-control"/>
-                </div>
-                <div class="col-sm-5">
-                    <input type="date" id="dt" name="dateto" value="{{$input['dateto']}}"  class="form-control"/>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="bt" class="col-sm-2 col-form-label">体温</label>
-                <div class="col-sm-5">
-                    <input type="number" step="0.1" name="bodytemperaturefrom" value="{{$input['bodytemperaturefrom']}}" id="bt"　placeholder="（例：小数第一位まで入力可）36.5" class="form-control"/>
-                </div>
-                <div class="col-sm-5">
-                    <input type="number" step="0.1" name="bodytemperatureto" value="{{$input['bodytemperatureto']}}" id="bt" class="form-control"/>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="pl" class="col-sm-2 col-form-label">脈拍</label>
-                <div class="col-sm-5">
-                    <input type="number" name="pulsefrom" value="{{$input['pulsefrom']}}" id="pl" placeholder="（例：回/分）60" class="form-control"/>
-                </div>
-                <div class="col-sm-5">
-                    <input type="number" name="pulseto" value="{{$input['pulseto']}}" id="pl" class="form-control"/>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="sbp" class="col-sm-2 col-form-label">収縮期血圧</label>
-                <div class="col-sm-5">
-                    <input type="number" name="systolicbpfrom" value="{{$input['systolicbpfrom']}}" id="sbp" placeholder="（例）120" class="form-control"/>
-                </div>
-                <div class="col-sm-5">
-                    <input type="number" name="systolicbpto" value="{{$input['systolicbpto']}}" id="sbp" class="form-control"/>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="dbp" class="col-sm-2 col-form-label">収縮期血圧</label>
-                <div class="col-sm-5">
-                    <input type="number" name="diastlicbpfrom" value="{{$input['diastlicbpfrom']}}" id="dbp"　placeholder="（例）60" class="form-control"/>
-                </div>
-                <div class="col-sm-5">
-                    <input type="number" name="diastlicbpto" value="{{$input['diastlicbpto']}}" id="dbp" class="form-control"/>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="exn" class="col-sm-2 col-form-label">排泄量</label>
-                <input type="hidden" name="excretion" value="">
-                @foreach($excretions as $index => $name)
-                    <div class="col-sm-2">
-                        <input type="checkbox" name="excretion[]" value="{{$index}}" id="exn" {{is_array($input['excretion']) && in_array($index,$input['excretion'])? 'checked':''}}>{{$name}}
+    
+    @if(count(array_filter($input)) > 1 )
+        <div id="search" class="collapse show">
+    @else
+        <div id="search" class="collapse">
+    @endif
+            <form action="{{route('home')}}" method="get">
+                {{ csrf_field() }}
+                <div class="form-group row">
+                    <label for="dt" class="col-sm-2 col-form-label">日付</label>
+                    <div class="col-sm-5">
+                        <input type="date" id="dt" name="datefrom" value="{{$input['datefrom']}}" class="form-control"/>
                     </div>
-                @endforeach
-            </div>
-            <div class="form-group row">
-                <label for="stm" class="col-sm-2 col-form-label">便の性状</label>
-                <input type="hidden" name="stoolform" value="">
-                @foreach($stoolforms as $index => $name)
-                    <div class="col-sm-2">
-                        <input type="checkbox" name="stoolform[]" value="{{$index}}" id="stm" {{is_array($input['stoolform']) && in_array($index,$input['stoolform'])? 'checked':''}}>{{$name}}
+                    <div class="col-sm-5">
+                        <input type="date" id="dt" name="dateto" value="{{$input['dateto']}}"  class="form-control"/>
                     </div>
-                @endforeach
-            </div>
-            <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary btn-lg mb-2">検索する</button>
-            </div>             
-        </form>
-    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="bt" class="col-sm-2 col-form-label">体温</label>
+                    <div class="col-sm-5">
+                        <input type="number" step="0.1" name="bodytemperaturefrom" value="{{$input['bodytemperaturefrom']}}" id="bt"　placeholder="（例：小数第一位まで入力可）36.5" class="form-control"/>
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="number" step="0.1" name="bodytemperatureto" value="{{$input['bodytemperatureto']}}" id="bt" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="pl" class="col-sm-2 col-form-label">脈拍</label>
+                    <div class="col-sm-5">
+                        <input type="number" name="pulsefrom" value="{{$input['pulsefrom']}}" id="pl" placeholder="（例：回/分）60" class="form-control"/>
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="number" name="pulseto" value="{{$input['pulseto']}}" id="pl" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="sbp" class="col-sm-2 col-form-label">収縮期血圧</label>
+                    <div class="col-sm-5">
+                        <input type="number" name="systolicbpfrom" value="{{$input['systolicbpfrom']}}" id="sbp" placeholder="（例）120" class="form-control"/>
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="number" name="systolicbpto" value="{{$input['systolicbpto']}}" id="sbp" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="dbp" class="col-sm-2 col-form-label">収縮期血圧</label>
+                    <div class="col-sm-5">
+                        <input type="number" name="diastlicbpfrom" value="{{$input['diastlicbpfrom']}}" id="dbp"　placeholder="（例）60" class="form-control"/>
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="number" name="diastlicbpto" value="{{$input['diastlicbpto']}}" id="dbp" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exn" class="col-sm-2 col-form-label">排泄量</label>
+                    <input type="hidden" name="excretion" value="">
+                    @foreach($excretions as $index => $name)
+                        <div class="col-sm-2">
+                            <input type="checkbox" name="excretion[]" value="{{$index}}" id="exn" {{is_array($input['excretion']) && in_array($index,$input['excretion'])? 'checked':''}}>{{$name}}
+                        </div>
+                    @endforeach
+                </div>
+                <div class="form-group row">
+                    <label for="stm" class="col-sm-2 col-form-label">便の性状</label>
+                    <input type="hidden" name="stoolform" value="">
+                    @foreach($stoolforms as $index => $name)
+                        <div class="col-sm-2">
+                            <input type="checkbox" name="stoolform[]" value="{{$index}}" id="stm" {{is_array($input['stoolform']) && in_array($index,$input['stoolform'])? 'checked':''}}>{{$name}}
+                        </div>
+                    @endforeach
+                </div>
+                <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary btn-lg mb-2">検索する</button>
+                </div>             
+            </form>
+        </div>
 
     <table class="table">
         <thead class="thead-dark">

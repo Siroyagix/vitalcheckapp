@@ -27,10 +27,6 @@ class HomeController extends Controller
     {
         $excretions = config('excretion');
         $stoolforms = config('stoolform');
-        //dump($request->input());
-        //dump(array_flip([
-        //    'page',
-        // ]));
         $input = array_diff_key($request->input(), array_flip([
             'page',
         ]));
