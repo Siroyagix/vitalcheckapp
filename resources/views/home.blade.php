@@ -4,9 +4,12 @@
 @section('content')
 
 <div class="container">
+    <h1 class="my-box mb-5 ml-2">
+        <span class="badge badge-dark">{{$whoesdata}}のバイタルデータ</span>
+    </h1>
     <div class="d-flex justify-content-between">                                                      
-        <button type="button" class="btn btn-info btn-lg m-2" data-toggle="collapse" data-target="#search">検索窓を開く　▼</button>
-        <a href="{{route('vitaldatum.create')}}" class="btn btn-success btn-lg m-2">記録する</a>
+        <button type="button" class="btn btn-info btn-lg m-2 mt-5" data-toggle="collapse" data-target="#search">検索窓を開く　▼</button>
+        <a href="{{route('vitaldatum.create')}}" class="btn btn-success btn-lg m-2 mt-5">記録する</a>
     </div>
     
     <div id="search" class="collapse {{count(array_filter($input))>0?'show':''}}">
@@ -80,8 +83,6 @@
             </div>             
         </form>
     </div>
-
-    <h1 class="display-3 text-center">{{$whoesdata}}のバイタルデータ</h1>
 
     <table class="table">
         <thead class="thead-dark">

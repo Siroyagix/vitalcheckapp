@@ -16,10 +16,6 @@ class VitaldatumController extends Controller
      */
     public function create(Request $request)
     {
-        /**
-         * @var mixed|Illuminate\Config\Repository $excretions
-         * @var mixed|Illuminate\Config\Repository $excretions
-         */
         $excretions = config('excretion');
         $stoolforms = config('stoolform');
         return view('vitaldatum.create')->with([
@@ -39,10 +35,6 @@ class VitaldatumController extends Controller
      */
     public function store(CreateUserRequest $request)
     {
-        /**
-         * @var App\Vitaldatum $vitaldatum
-         * @var array $form
-         */
         $vitaldatum = new Vitaldatum();
         $form = $request->all();
         $form['user_id'] = Auth::id(); 
@@ -78,9 +70,6 @@ class VitaldatumController extends Controller
      */
     public function update(CreateUserRequest $request,Vitaldatum $vitaldatum)
     {
-        /**
-         * @var array $parameter
-         */
         $parameter = $request->all();
         unset($request['_token']);
         $vitaldatum->fill($parameter)->save();

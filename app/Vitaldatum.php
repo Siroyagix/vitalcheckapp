@@ -6,10 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vitaldatum extends Model
 {
-    /**
-     * @var string $table
-     * @var string $table
-     */
     protected $table = 'vitaldata';
     protected $guarded = array('id');
 
