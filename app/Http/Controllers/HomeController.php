@@ -31,8 +31,14 @@ class HomeController extends Controller
      */
      public function index(Request $request)
     {
+        /**
+         *@var mixed|Illuminate\Config\Repository $excretions
+         *@var mixed|Illuminate\Config\Repository $stoolforms
+         *@var array $input
+         */
         $excretions = config('excretion');
         $stoolforms = config('stoolform');
+        $whoesdata = auth()->user()->name;
         $input = array_diff_key($request->input(), array_flip([
             'page',
             '_token',
@@ -53,6 +59,9 @@ class HomeController extends Controller
                 'stoolform' => '',
             ];
         }
+        /**
+         * @var mixed $items
+         */
         $items = auth()->user()->vitaldata();
         if (isset($input['datefrom']) && $input['datefrom']) {
             $items->where('date', '>=', $input['datefrom']);
@@ -104,7 +113,8 @@ class HomeController extends Controller
             'items' => $items->orderBy('date','desc')->paginate(10),
             'excretions' => $excretions,
             'stoolforms' => $stoolforms,
-            'input' => $input
+            'input' => $input,
+            'whoesdata' => $whoesdata
         ]);
     }
 

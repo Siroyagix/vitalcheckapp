@@ -81,6 +81,8 @@
         </form>
     </div>
 
+    <h1 class="display-3 text-center">{{$whoesdata}}のバイタルデータ</h1>
+
     <table class="table">
         <thead class="thead-dark">
         <tr>
