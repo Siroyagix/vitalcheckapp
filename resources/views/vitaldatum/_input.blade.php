@@ -74,7 +74,7 @@
 <div class="form-group row">
     <label for="free"  class="col-sm-2 col-form-label">フリーコメント</label>
     <div class="col-sm-10">
-        <textarea id="free" placeholder="30字以内で記録" name="freecomments"　rows="5" cols="5" class="form-control {{$errors->has('freecomments')? 'is-invalid': ''}}"> {{$vitaldatum->freecomments}}</textarea>
+        <textarea id="free" placeholder="例）30字以内で記録" name="freecomments"　rows="5" cols="5" class="form-control {{$errors->has('freecomments')? 'is-invalid': ''}}"> {{$vitaldatum->freecomments}}</textarea>
         <div class="invalid-feedback">
             {{collect($errors->get('freecomments'))->first()}}
         </div>
