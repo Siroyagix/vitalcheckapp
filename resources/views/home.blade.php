@@ -7,14 +7,6 @@
     <h1 class="my-box mb-5 ml-2">
         <span class="badge badge-dark">{{$whoesdata}}のバイタルデータ</span>
     </h1>
-    {{--  <div id="app" class="p-3">
-        <p>Vanilla.js, jQuery のテスト</p>
-        <button onclick="test_vanilla()">test_vanilla</button>
-        <button id="btn">test_jquery</button>
-    </div>
-
-    <!-- vanilla.js はここで読み込む-->
-    <script src="{{ asset('js/test.js') }}"></script>  --}}
     <div class="d-flex justify-content-between">                                                      
         <button type="button" class="btn btn-info btn-lg m-2 mt-5" data-toggle="collapse" data-target="#search">検索窓を開く　▼</button>
         <a href="{{route('vitaldatum.create')}}" class="btn btn-success btn-lg m-2 mt-5">記録する</a>
@@ -108,7 +100,7 @@
         </tr>
         </thead>
         @foreach($items as $item)
-        <tr>
+        <tr id="table_low" onmouseover="table_color_onmouse()" onmouseout="table_color_mouseout()">
             <td>{{$item->date}}</td>
             <td>{{$item->bodytemperature}}</td>
             <td>{{$item->pulse}}</td>
@@ -158,6 +150,7 @@
     <div class="pagination justify-content-center">
         {{$items->links('vendor.pagination.bootstrap-4')}}
     </div>
+    <script src="{{ asset('js/test.js') }}"></script>
 </div>
 
 @endsection
