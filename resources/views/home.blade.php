@@ -151,7 +151,6 @@
     <div class="pagination justify-content-center">
         {{$items->links('vendor.pagination.bootstrap-4')}}
     </div>
-    <script src="{{ asset('js/test.js') }}"></script>
 </div>
 
 @endsection
