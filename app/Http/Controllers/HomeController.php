@@ -36,6 +36,7 @@ class HomeController extends Controller
          *@var mixed|Illuminate\Config\Repository $stoolforms
          *@var array $input
          */
+        
         $excretions = config('excretion');
         $stoolforms = config('stoolform');
         $whoesdata = auth()->user()->name;

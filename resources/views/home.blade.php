@@ -79,7 +79,7 @@
                 @endforeach
             </div>
             <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary btn-lg mb-2">検索する</button>
+                    <button type="submit" id="searchbutton" onmouseover="change_search_button()" onmouseout="return_search_button()" class="btn btn-primary btn-lg mb-2">検索する</button>
             </div>             
         </form>
     </div>
@@ -99,8 +99,9 @@
             <th></th>
         </tr>
         </thead>
+        <?php $i=0; ?>
         @foreach($items as $item)
-        <tr id="table_low" onmouseover="table_color_onmouse()" onmouseout="table_color_mouseout()">
+        <tr id="table_low{{$i++}}" onmouseover="table_color_onmouse(this)" onmouseout="table_color_mouseout(this)">
             <td>{{$item->date}}</td>
             <td>{{$item->bodytemperature}}</td>
             <td>{{$item->pulse}}</td>
