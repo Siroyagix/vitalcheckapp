@@ -99,7 +99,6 @@
             <th></th>
         </tr>
         </thead>
-        <?php $i=0; ?>
         @foreach($items as $item)
         <tr id="table_low{{$i++}}" onmouseover="table_color_onmouse(this)" onmouseout="table_color_mouseout(this)">
             <td>{{$item->date}}</td>
