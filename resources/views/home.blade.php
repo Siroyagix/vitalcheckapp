@@ -4,6 +4,11 @@
 @section('content')
 
 <div class="container">
+    <div id="app" class="p-3">
+        <p>Vanilla.js, jQuery のテスト</p>
+        <button onclick="test_vanilla()">test_vanilla</button>
+        <button id="btn">test_jquery</button>
+    </div>
     <h1 class="my-box mb-5 ml-2">
         <span class="badge badge-dark">{{$whoesdata}}のバイタルデータ</span>
     </h1>
