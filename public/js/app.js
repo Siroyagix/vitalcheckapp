@@ -49043,12 +49043,23 @@ var app = new Vue({
 /***/ (function(module, exports) {
 
 $(function () {
+
   $('table tr[id*="table_low"]').mouseover(function () {
     $('#'+this.id).css("backgroundColor", "yellow");
   });
+
   $('table tr[id*="table_low"]').mouseout(function () {
-    $('#'+this.id).css("backgroundColor", "white");
+    $('#'+this.id).css("backgroundColor", "");
   });
+
+  $('#searchbutton').mouseover(function(){
+    $('#searchbutton').text("サーチ");
+  });
+
+  $('#searchbutton').mouseout(function(){
+    $('#searchbutton').text("検索する");
+  });
+
 });
 
 /***/ }),

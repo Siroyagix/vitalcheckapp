@@ -79,7 +79,7 @@
                 @endforeach
             </div>
             <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary btn-lg mb-2">検索する</button>
+                    <button type="submit" class="btn btn-primary btn-lg mb-2" id="searchbutton">検索する</button>
             </div>             
         </form>
     </div>
