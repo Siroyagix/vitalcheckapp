@@ -49043,11 +49043,11 @@ var app = new Vue({
 /***/ (function(module, exports) {
 
 $(function () {
-  $().mouseover(function () {
-    $().css("backgroundColor", "yellow");
+  $('table tr[id*="table_low"]').mouseover(function () {
+    $('#'+this.id).css("backgroundColor", "yellow");
   });
-  $().mouseout(function () {
-    $().css("backgroundColor", "white");
+  $('table tr[id*="table_low"]').mouseout(function () {
+    $('#'+this.id).css("backgroundColor", "white");
   });
 });
 

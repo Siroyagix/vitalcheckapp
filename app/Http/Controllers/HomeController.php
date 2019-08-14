@@ -37,6 +37,7 @@ class HomeController extends Controller
          *@var array $input
          */
         $i = 0;
+        $table_low = 'table_low'.$i;
         $excretions = config('excretion');
         $stoolforms = config('stoolform');
         $whoesdata = auth()->user()->name;
@@ -116,7 +117,7 @@ class HomeController extends Controller
             'stoolforms' => $stoolforms,
             'input' => $input,
             'whoesdata' => $whoesdata,
-            'i' => $i
+            'table_low' => $table_low
         ]);
     }
 
