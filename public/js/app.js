@@ -49042,10 +49042,12 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// test_jquery.js
 $(function () {
-  $('#btn').on('click', function () {
-    alert("Hello jQuery!!");
+  $().mouseover(function () {
+    $().css("backgroundColor", "yellow");
+  });
+  $().mouseout(function () {
+    $().css("backgroundColor", "white");
   });
 });
 
