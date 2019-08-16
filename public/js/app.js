@@ -49062,6 +49062,14 @@ $(function () {
       }
     );
 
+    $("select[id='exn']").change(function(){
+      var selectexn = $('option:selected').val();
+      if(selectexn == 1){
+        $('select[id="stm"]').hide();
+      }else{
+        $('select[id="stm"]').show();
+      }
+    });
 
 });
 
