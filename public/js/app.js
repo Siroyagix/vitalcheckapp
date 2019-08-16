@@ -49043,7 +49043,7 @@ var app = new Vue({
 /***/ (function(module, exports) {
 
 $(function () {
-
+//home.blade.php対象
     $('table tr').hover(
       function(){
         $(this).addClass("table_yellow");
@@ -49061,7 +49061,7 @@ $(function () {
         $(this).text('検索する');
       }
     );
-
+//input.blade.php対象
     $("select[id='exn']").change(function(){
       var selectexn = $('option:selected').val();
       if(selectexn == 1){
