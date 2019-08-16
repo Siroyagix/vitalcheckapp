@@ -36,8 +36,6 @@ class HomeController extends Controller
          *@var mixed|Illuminate\Config\Repository $stoolforms
          *@var array $input
          */
-        $i = 0;
-        $table_low = 'table_low'.$i;
         $excretions = config('excretion');
         $stoolforms = config('stoolform');
         $whoesdata = auth()->user()->name;
@@ -116,8 +114,7 @@ class HomeController extends Controller
             'excretions' => $excretions,
             'stoolforms' => $stoolforms,
             'input' => $input,
-            'whoesdata' => $whoesdata,
-            'table_low' => $table_low
+            'whoesdata' => $whoesdata
         ]);
     }
 

@@ -100,7 +100,7 @@
         </tr>
         </thead>
         @foreach($items as $item)
-        <tr id="{{$table_low++}}">
+        <tr>
             <td>{{$item->date}}</td>
             <td>{{$item->bodytemperature}}</td>
             <td>{{$item->pulse}}</td>

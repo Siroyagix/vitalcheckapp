@@ -49044,21 +49044,24 @@ var app = new Vue({
 
 $(function () {
 
-  $('table tr[id*="table_low"]').mouseover(function () {
-    $('#'+this.id).css("backgroundColor", "yellow");
-  });
+    $('table tr').hover(
+      function(){
+        $(this).addClass("table_yellow");
+      },
+      function(){
+        $(this).removeClass();
+      }
+    );
 
-  $('table tr[id*="table_low"]').mouseout(function () {
-    $('#'+this.id).css("backgroundColor", "");
-  });
+    $('#searchbutton').hover(
+      function(){
+        $(this).text("サーチ");
+      },
+      function(){
+        $(this).text('検索する');
+      }
+    );
 
-  $('#searchbutton').mouseover(function(){
-    $('#searchbutton').text("サーチ");
-  });
-
-  $('#searchbutton').mouseout(function(){
-    $('#searchbutton').text("検索する");
-  });
 
 });
 
