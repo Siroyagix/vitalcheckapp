@@ -4,7 +4,6 @@ function test_vanilla() {
 
 
 function table_color_onmouse(select_tr){
-    console.log(select_tr);
     select_tr.classList.add("table_yellow");
 }
 
