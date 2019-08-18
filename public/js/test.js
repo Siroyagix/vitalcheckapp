@@ -3,16 +3,13 @@ function test_vanilla() {
 }
 
 
-function table_color_onmouse(obj){
-        var table_low_id = obj.id;
-        var table_low = document.getElementById(table_low_id);
-        table_low.style.backgroundColor = "yellow";
+function table_color_onmouse(select_tr){
+    console.log(select_tr);
+    select_tr.classList.add("table_yellow");
 }
 
-function table_color_mouseout(obj){
-        var table_low_id = obj.id;
-        var table_low = document.getElementById(table_low_id);
-        table_low.style.backgroundColor="white";
+function table_color_mouseout(select_tr){
+    select_tr.classList.remove("table_yellow");
 }
 
 function change_search_button(){

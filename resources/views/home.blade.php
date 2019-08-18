@@ -100,7 +100,7 @@
         </tr>
         </thead>
         @foreach($items as $item)
-        <tr id="table_low{{$i++}}" onmouseover="table_color_onmouse(this)" onmouseout="table_color_mouseout(this)">
+        <tr onmouseover="table_color_onmouse(this)" onmouseout="table_color_mouseout(this)">
             <td>{{$item->date}}</td>
             <td>{{$item->bodytemperature}}</td>
             <td>{{$item->pulse}}</td>
