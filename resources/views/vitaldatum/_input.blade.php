@@ -46,7 +46,7 @@
 <div class="form-group row">
     <label for="exn" class="col-sm-2 col-form-label">排泄量</label>
     <div class="col-sm-10">
-        <select id="exn" name="excretion" class="form-control {{$errors->has('excretion')?'is-invalid':''}}">
+        <select id="exn" name="excretion" onchange="remove_under(this)" class="form-control {{$errors->has('excretion')?'is-invalid':''}}">
             <option value="">----</option>
             @foreach($excretions as $index => $name)
                 <option value="{{$index}}"{{isset($vitaldatum->excretion) && $index==$vitaldatum->excretion?'selected':""}}>{{$name}}</option>
@@ -60,7 +60,7 @@
 <div class="form-group row">
     <label for="stm" class="col-sm-2 col-form-label">便の性状</label>
     <div class="col-sm-10">
-        <select id="stm" name="stoolform" class="form-control {{$errors->has('stoolform')?'is-invalid':''}}">
+        <select id="stm" name="stoolform"  class="form-control {{$errors->has('stoolform')?'is-invalid':''}}">
             <option value="">----</option>
             @foreach($stoolforms as $index => $name)
                 <option value="{{$index}}"{{isset($vitaldatum->stoolform) && $index==$vitaldatum->excretion?'selected':""}}>{{$name}}</option>

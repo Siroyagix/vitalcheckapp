@@ -3,15 +3,28 @@ function test_vanilla() {
 }
 
 
-function table_color_onmouse(obj){
-        var table_low_id = obj.id;
-        console.log(table_low_id);
-        var table_low = document.getElementById("table_low_id");
-        table_low.style.backgroundColor = "yellow";
+function table_color_onmouse(select_tr){
+        select_tr.classList.add(table_yellow);
 }
 
-function table_color_mouseout(obj){
-        var table_low_id = obj.id;
-        var table_low = document.getElementById("table_low_id");
-        table_low.style.backgroundColor="white";
+function table_color_mouseout(select_tr){
+        select_tr.classList.remove(table_yellow);
+}
+
+function change_search_button(onbtn){
+        onbtn.innerHTML("サーチ");
+
+}
+
+function return_search_button(onbtn){
+        onbtn.innerHTML("検索する");
+
+}
+
+function remove_under(obj){
+        var result = obj.value;
+        if(result==1){
+                
+        }
+
 }
