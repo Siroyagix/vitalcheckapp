@@ -7,6 +7,7 @@
     <h1 class="my-box mb-5 ml-2">
         <span class="badge badge-dark">{{$whoesdata}}のバイタルデータ</span>
     </h1>
+    <canvas id="vc_chart"></canvas>
     <div class="d-flex justify-content-between">                                                      
         <button type="button" class="btn btn-info btn-lg m-2 mt-5" data-toggle="collapse" data-target="#search">検索窓を開く　▼</button>
         <a href="{{route('vitaldatum.create')}}" class="btn btn-success btn-lg m-2 mt-5">記録する</a>
@@ -101,7 +102,7 @@
         </thead>
         @foreach($items as $item)
         <tr>
-            <td>{{$item->date}}</td>
+            <td id="item_date">{{$item->date}}</td>
             <td>{{$item->bodytemperature}}</td>
             <td>{{$item->pulse}}</td>
             <td>{{$item->systolicbp}}</td>
