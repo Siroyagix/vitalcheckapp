@@ -49070,7 +49070,10 @@ $(function () {
         $('select[id="stm"]').show();
       }
     });
-
+//chart.js対象（homebladephp）
+    $(".list_date").each(function(i,item){
+      $(item).text();
+    });
 });
 
 /***/ }),

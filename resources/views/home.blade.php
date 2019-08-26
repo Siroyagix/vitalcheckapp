@@ -100,15 +100,15 @@
             <th></th>
         </tr>
         </thead>
-        @foreach($items as $item)
-        <tr>
-            <td id="item_date">{{$item->date}}</td>
-            <td>{{$item->bodytemperature}}</td>
-            <td>{{$item->pulse}}</td>
-            <td>{{$item->systolicbp}}</td>
-            <td>{{$item->diastlicbp}}</td>
-            <td>{{isset($item->excretion)?$excretions[$item->excretion]:""}}</td>
-            <td>{{isset($item->stoolform)?$stoolforms[$item->stoolform]:""}}</td>
+        @foreach($items as $key => $item)
+        <tr id="list_row{{$key}}">
+            <td class="list_date">{{$item->date}}</td>
+            <td class="list_bodytemperature">{{$item->bodytemperature}}</td>
+            <td class="list_pulse">{{$item->pulse}}</td>
+            <td class="list_systolicbp">{{$item->systolicbp}}</td>
+            <td class="list_diastlicbp">{{$item->diastlicbp}}</td>
+            <td class="list_excretion">{{isset($item->excretion)?$excretions[$item->excretion]:""}}</td>
+            <td class="list_stoolform">{{isset($item->stoolform)?$stoolforms[$item->stoolform]:""}}</td>
             <td>{{$item->freecomments}}</td>
             <td>
                 <a href="{{route('vitaldatum.edit',[$item])}}" class="btn btn-primary">編集</a>
