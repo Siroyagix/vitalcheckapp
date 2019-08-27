@@ -101,7 +101,7 @@
         </tr>
         </thead>
         @foreach($items as $key => $item)
-        <tr id="list_row{{$key}}">
+        <tr class="list_row{{$key}}">
             <td class="list_date">{{$item->date}}</td>
             <td class="list_bodytemperature">{{$item->bodytemperature}}</td>
             <td class="list_pulse">{{$item->pulse}}</td>

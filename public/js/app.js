@@ -49071,9 +49071,9 @@ $(function () {
       }
     });
 //chart.js対象（homebladephp）
-    $(".list_date").each(function(i,item){
-      $(item).text();
-    });
+//    $(".list_date").each(function(i,item){
+//      $(item).text();
+//    });
 });
 
 /***/ }),
