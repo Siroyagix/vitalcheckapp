@@ -1,13 +1,33 @@
 //import { brotliDecompress } from "zlib";
 
 //　Chart.Jsここから
+//連想配列をまとめて、配列から要素を抜き出して、chart.jsに渡す
 var ctx = document.getElementById('vc_chart').getContext('2d');
 
+
+var result = [];
+$("tr[class^=list_row]").each(function(i,item){
+    result.push({
+        {
+            'date': $(item).children(".list_date").text(),
+            'bodytemperature': $(item).children(".list_bodytemperature").text(),
+        }
+    })
+});
+
+result.sort(function(a, b){
+    return a.date > b.date? 1: -1;
+});
+
 var array_date = [];
-var array_bodytemperature = [];
-var array_pulse =[];
-var array_systolicbp = [];
-var array_diastlicbp = [];
+var array_bodytemperature = {};
+var array_pulse = {};
+var array_systolicbp = {};
+var array_diastlicbp = {};
+var sort_bodytemperature = [];
+var sort_pulse = [];
+var sort_systolicbp = [];
+var sort_diastlicbp = [];
  
 $("tr[class^=list_row]").each(function(i,item){
     var date = $(item).find(".list_date").text();
@@ -17,17 +37,21 @@ $("tr[class^=list_row]").each(function(i,item){
     var diastlicbp = $(item).find(".list_diastlicbp").text();
 
     array_date.push(date);
-    array_bodytemperature.push(bodytemperature);
-    array_pulse.push(pulse);
-    array_systolicbp.push(systolicbp);
-    array_diastlicbp.push(diastlicbp);
-  });
+    array_bodytemperature[date] = bodytemperature;
+    array_pulse[date] = pulse;
+    array_systolicbp[date] = systolicbp;
+    array_diastlicbp[date] = diastlicbp;
+});
 
-  var array_date = array_date.reverse();
-  var array_bodytemperature = array_bodytemperature.reverse();
-  var array_pulse = array_pulse.reverse();
-  var array_systolicbp = array_systolicbp.reverse();
-  var array_diastlicbp = array_diastlicbp.reverse();
+// 日付を昇順に
+array_date.sort();
+
+$.each(array_date, function(i, d) {
+    sort_bodytemperature.push(array_bodytemperature[d]);
+    sort_pulse.push(array_pulse[d]);
+    sort_systolicbp.push(array_systolicbp[d]);
+    sort_diastlicbp.push(array_diastlicbp[d]);
+});
 
 var chart = new Chart(ctx, {
     // 作成したいチャートのタイプ
@@ -45,7 +69,7 @@ var chart = new Chart(ctx, {
                 borderColor: 'blue',
                 fill:false,
                 lineTension:0,
-                data: array_bodytemperature,
+                data: sort_bodytemperature,
                 spanGaps: false,
                 yAxisID:"bdt",
             },
@@ -55,7 +79,7 @@ var chart = new Chart(ctx, {
                 borderColor: 'red',
                 fill:false,
                 lineTension:0,
-                data: array_pulse,
+                data: sort_pulse,
                 spanGaps: false,
                 yAxisID:"pls",
             },
@@ -65,7 +89,7 @@ var chart = new Chart(ctx, {
                 borderColor: 'black',
                 fill:false,
                 lineTension:0,
-                data: array_systolicbp,
+                data: sort_systolicbp,
                 pointStyle:"triangle",
                 spanGaps: false,
                 yAxisID:"sys",
@@ -76,7 +100,7 @@ var chart = new Chart(ctx, {
                 borderColor: 'gray',
                 fill:false,
                 lineTension:0,
-                data: array_diastlicbp,
+                data: sort_diastlicbp,
                 pointStyle:"triangle",
                 yAxisID:"dia",
                 spanGaps: false,
